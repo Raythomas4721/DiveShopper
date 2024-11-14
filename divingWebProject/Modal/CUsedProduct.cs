@@ -19,5 +19,6 @@ namespace divingWebProject.Modal
         public DateTime createdAt { get; set; }
         public int productConditionId { get; set; }
         public bool productStatus { get; set; }
+        public byte[] image { get; set; }
     }
 }
