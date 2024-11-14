@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace divingWebProject.View
 {
-    public partial class FrmOrder : Form
+    public partial class FrmNewOder : Form
     {
-        public FrmOrder()
+        public FrmNewOder()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FrmNewOder f = new FrmNewOder();
-        
-            f.ShowDialog();
+
         }
     }
 }

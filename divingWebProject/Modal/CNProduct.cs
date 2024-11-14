@@ -18,6 +18,15 @@ namespace divingWebProject.Modal
 
         public string fsize { get; set; }
 
-        public int fthickness { get; set; }
+        public string fthickness { get; set; }
+
+        public decimal fprice { get; set; }
+
+        public decimal fqty { get; set; }
+
+        public byte[] fImage { get; set; }
+
+
+
     }
 }

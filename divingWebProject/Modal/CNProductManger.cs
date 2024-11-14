@@ -9,31 +9,40 @@ namespace divingWebProject.View
 {
    public class CNProductManger
     {
-        //public void create(CProduct p)//新增商品的方法
-        //{
+        public void create()//新增商品的方法
+        {
 
-        //    string sql = "INSERT INTO tProduct (";
-        //    sql += "fname,";
-        //    sql += "fcolor,";
-        //    sql += "fgender,";
-        //    sql += "fsize,";
-        //    sql += "fthickness";
-        //    sql += ")VALUES(";
-        //    sql += "@K_FNAME,";
-        //    sql += "@K_FCOLOR ,";
-        //    sql += "@K_FGENDER,";
-        //    sql += "@K_FSIZE,";
-        //    sql += "@K_FTHICKNESS)";
+            string sql = "INSERT INTO tNproductvariants (";
+            //sql += "productName,";
+            //sql += "unitPrice,";
+            sql += "genderId,";
+            sql += "colorId,";
+            sql += "sizeId,";
+            sql += "thicknessId";
+            sql += ")VALUES(";
+            sql += "@K_FGENDER,";
+            sql += "@K_FCOLOR ,";
+            sql += "@K_FSIZE,";
+            sql += "@K_FTHICKNESS)";
 
-        //    SqlConnection con = new SqlConnection();
-        //    con.ConnectionString = @"";
-        //    con.Open();
-        //    SqlCommand cmd = new SqlCommand();
-        //    cmd.Connection = con;
-        //    cmd.CommandText = sql;
-        //    cmd.ExecuteReader();
-        //    con.Close();
-        //}
+            sql += "INSERT INTO tNproduct (";
+            sql += "productName,";
+            sql += "unitPrice,";
+            sql += "unitCost,";
+            sql += ")VALUES(";
+            sql += "@K_FPRODUCTNAME,";
+            sql += "@K_FUNITPRICE ,";
+            sql += "@K_FCOST)";
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Integrated Security=True;";
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = sql;
+            cmd.ExecuteReader();
+            con.Close();
+        }
 
         //public void update()    //修改產品的方法
         //{
@@ -62,6 +71,6 @@ namespace divingWebProject.View
         //    cmd.ExecuteNonQuery();
         //    con.Close();
         //}
-        }
+    }
     }
 
