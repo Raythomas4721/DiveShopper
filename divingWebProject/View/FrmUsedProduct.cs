@@ -16,5 +16,11 @@ namespace divingWebProject.View
         {
             InitializeComponent();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)  //新增
+        {
+            FrmUsedProductEditor f = new FrmUsedProductEditor();
+            f.ShowDialog();
+        }
     }
 }
