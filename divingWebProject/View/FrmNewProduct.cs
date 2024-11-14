@@ -16,5 +16,10 @@ namespace divingWebProject.View
         {
             InitializeComponent();
         }
+      
+        private void FrmNewProduct_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
