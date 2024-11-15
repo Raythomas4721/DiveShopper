@@ -1,7 +1,9 @@
-﻿using System;
+﻿using divingWebProject.Modal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,10 +19,111 @@ namespace divingWebProject.View
             InitializeComponent();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)  //新增
+        private void Create_Click(object sender, EventArgs e)  //新增
         {
             FrmUsedProductEditor f = new FrmUsedProductEditor();
             f.ShowDialog();
+            
+
+            if (f.isOk == DialogResult.OK) 
+            {
+                DataTable dt =dataGridView1.DataSource as DataTable;
+                DataRow row = dt.NewRow();
+                row["productName"]=f.usedProduct.productName;
+                row["categoryId"] = f.usedProduct.categoryId;
+                row["productPrice"] = f.usedProduct.productPrice;
+                row["productConditionId"] = f.usedProduct.productConditionId;
+                row["productDescription"] = f.usedProduct.productDescription;
+                row["productId"] = f.usedProduct.productId;
+                row["sellerId"] = f.usedProduct.sellerId;
+                row["createdAt"] = f.usedProduct.createdAt;
+                
+
+                dt.Rows.Add(row);
+            }
+
         }
+
+        SqlDataAdapter _da;
+        SqlCommandBuilder _builder;
+        private void FrmUsedProduct_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=SSPI;";
+            con.Open();
+
+            _da = new SqlDataAdapter("SELECT * FROM tUproducts",con);
+            _builder = new SqlCommandBuilder();
+            _builder.DataAdapter = _da;
+
+            DataSet ds=new DataSet();
+            _da.Fill(ds);
+            con.Close();
+            dataGridView1.DataSource = ds.Tables[0]; //dataTable
+        }
+
+        private void FrmUsedProduct_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _da.Update(dataGridView1.DataSource as DataTable);
+        }
+
+        int _position = -1;
+        private void Revise_Click(object sender, EventArgs e) //修改
+        {
+            if (_position < 0)
+                return;
+            DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            FrmUsedProductEditor f = new FrmUsedProductEditor();
+            CUsedProduct x = new CUsedProduct();
+            f.ShowDialog();
+            x.productName = row["productName"].ToString();  // 假設 productName 是 string 類型
+            x.categoryId = Convert.ToInt32(row["categoryId"]);  // 假設 categoryId 是 int 類型
+            x.productPrice = Convert.ToDecimal(row["productPrice"]);  // 假設 productPrice 是 decimal 類型
+            x.productConditionId = Convert.ToInt32(row["productConditionId"]);  // 假設 productConditionId 是 int 類型
+            x.productDescription = row["productDescription"].ToString();  // 假設 productDescription 是 string 類型
+            x.productId = Convert.ToInt32(row["productId"]);  // 假設 productId 是 int 類型
+            x.sellerId = Convert.ToInt32(row["sellerId"]);  // 假設 sellerId 是 int 類型
+            x.updatedAt=DateTime.Now.ToString();
+
+            int categoryId;
+            if (int.TryParse(row["categoryId"].ToString(), out categoryId))
+            {
+                x.categoryId = categoryId;
+            }
+            else
+            {
+                // 處理轉換失敗的情況
+                    x.categoryId = 0; // 或者其他預設值
+            }
+            f.usedProduct = x;
+
+            
+            if (f.isOk == DialogResult.OK)
+            {
+                row["productName"] = f.usedProduct.productName;
+                row["categoryId"] = f.usedProduct.categoryId;
+                row["productPrice"] = f.usedProduct.productPrice;
+                row["productConditionId"] = f.usedProduct.productConditionId;
+                row["productDescription"] = f.usedProduct.productDescription;
+                row["productId"] = f.usedProduct.productId;
+                row["sellerId"] = f.usedProduct.sellerId;
+                //row["createdAt"] = f.usedProduct.createdAt;
+            }
+        }
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            _position = e.RowIndex;
+        }
+        private void Delete_Click(object sender, EventArgs e) //刪除
+        {
+            if (_position < 0)
+                return;
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            DataRow row = dt.Rows[_position];
+            row.Delete();
+            _da.Update(dataGridView1.DataSource as DataTable);
+        }
+
+        
     }
 }

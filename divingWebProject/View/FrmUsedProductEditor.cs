@@ -20,26 +20,19 @@ namespace divingWebProject.View
         {
             get
             {
-                if (usedProduct == null)
+                if (_usedProduct == null)
                     _usedProduct = new CUsedProduct();
                 _usedProduct.productName = fproductName.Text; //商品名稱
                 _usedProduct.categoryId = Convert.ToInt32(fcategoryId.SelectedValue); //商品分類
                 _usedProduct.productPrice = Convert.ToDecimal(fproductPrice.Text); //商品價錢
-                _usedProduct.productConditionId = Convert.ToInt32(fproductConditionId.Text); //商品狀況
+                
+                _usedProduct.productConditionId = Convert.ToInt32(fproductConditionId.SelectedValue); // 商品狀況
+
                 _usedProduct.productDescription = fproductDescription.Text; //商品描述
                 _usedProduct.productId = Convert.ToInt32(fproductId.Text); //商品ID
                 _usedProduct.sellerId = Convert.ToInt32(fsellerId.Text); //賣家ID
-
-                DateTime createdAt; //商品上架時間
-                if (DateTime.TryParse(fcreatedAt.Text, out createdAt))
-                {
-                    _usedProduct.createdAt = createdAt;
-                }
-                else
-                {
-                    MessageBox.Show("請輸入有效的日期格式（例如：yyyy-MM-dd）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
+                _usedProduct.createdAt =DateTime.Now.ToString();
+                
 
                 return _usedProduct;
 
@@ -54,6 +47,9 @@ namespace divingWebProject.View
                 fproductDescription.Text = _usedProduct.productDescription; // 商品描述
                 fproductId.Text = _usedProduct.productId.ToString(); // 商品ID
                 fsellerId.Text = _usedProduct.sellerId.ToString(); // 賣家ID
+                //fcreatedAt.Text = _usedProduct.createdAt.ToString(); //商品上架時間
+
+               
 
                 if (_usedProduct.image != null)
                 {

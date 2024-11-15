@@ -15,8 +15,8 @@ namespace divingWebProject.Modal
         public string productName { get; set; }
         public string productDescription { get; set; }
         public decimal productPrice { get; set; }
-        public DateTime updatedAt { get; set; }
-        public DateTime createdAt { get; set; }
+        public string updatedAt { get; set; }
+        public string createdAt { get; set; }
         public int productConditionId { get; set; }
         public bool productStatus { get; set; }
         public byte[] image { get; set; }
