@@ -62,7 +62,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 60);
             this.button1.TabIndex = 2;
-            this.button1.Text = "確認新增";
+            this.button1.Text = "確認";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -183,6 +183,7 @@
             this.Controls.Add(this.fbName);
             this.Controls.Add(this.fbId);
             this.Name = "FrmNewProductEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNewProductEditor";
             this.Load += new System.EventHandler(this.FrmNewProductEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

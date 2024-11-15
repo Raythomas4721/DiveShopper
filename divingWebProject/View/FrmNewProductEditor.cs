@@ -1,4 +1,4 @@
-﻿using AntdUI.Theme;
+﻿
 using divingWebProject.Modal;
 using System;
 using System.Collections.Generic;
@@ -102,7 +102,9 @@ namespace divingWebProject.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-        //    string message = "";
+        
+           
+            //    string message = "";
 
         //    if (string.IsNullOrEmpty(fbName.filedValue))
         //        message += "\r\n房型不可空白";

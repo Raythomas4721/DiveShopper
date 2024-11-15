@@ -1,4 +1,5 @@
-﻿using System;
+﻿using divingWebProject.Modal;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace divingWebProject.View
 {
    public class CNProductManger
     {
-        public void create()//新增商品的方法
+        public void create(CNProduct p)//新增訂單的方法
         {
 
-            string sql = "INSERT INTO tNproductvariants (";
+            string sql = "INSERT INTO tNorderDetail (";
             //sql += "productName,";
             //sql += "unitPrice,";
             sql += "genderId,";

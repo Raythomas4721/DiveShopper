@@ -56,17 +56,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modal\CNorder.cs" />
     <Compile Include="Modal\CNProduct.cs" />
-    <Compile Include="Modal\NFieldBox.cs">
+    <Compile Include="View\NFieldBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Modal\NFieldBox.Designer.cs">
+    <Compile Include="View\NFieldBox.Designer.cs">
       <DependentUpon>NFieldBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modal\NProductBox.cs">
+    <Compile Include="View\NProductBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Modal\NProductBox.Designer.cs">
+    <Compile Include="View\NProductBox.Designer.cs">
       <DependentUpon>NProductBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -141,10 +142,10 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modal\NFieldBox.resx">
+    <EmbeddedResource Include="View\NFieldBox.resx">
       <DependentUpon>NFieldBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modal\NProductBox.resx">
+    <EmbeddedResource Include="View\NProductBox.resx">
       <DependentUpon>NProductBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

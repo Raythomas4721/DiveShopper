@@ -11,17 +11,18 @@ using System.Windows.Forms;
 
 namespace divingWebProject.Modal
 {
-    public delegate void DRoomClick(CNProduct p);
+    public delegate void DProductClick(CNProduct p);
     public partial class NProductBox : UserControl
     {
+        
+        public event DProductClick orderproduct;//用delegate 創造事件
         private CNProduct _newproduct;
         public NProductBox()
         {
             InitializeComponent();
         }
 
-
-        public event DRoomClick orderRoom;//用delegate 創造事件
+        
 
         public CNProduct newproduct
         {
@@ -33,9 +34,15 @@ namespace divingWebProject.Modal
                 label1NAME.Text = _newproduct.fname;
                 label3PRICE.Text = _newproduct.fprice.ToString();
                 Stream s = new MemoryStream(_newproduct.fImage);
-                pictureBox1.Image = Bitmap.FromStream(s);
+                pictureBox2.Image = Bitmap.FromStream(s);
 
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (orderproduct != null)
+                orderproduct(this._newproduct);
         }
 
         //private void lblName_Click(object sender, EventArgs e)
