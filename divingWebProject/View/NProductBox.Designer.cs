@@ -31,6 +31,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1NAME = new System.Windows.Forms.Label();
             this.label3PRICE = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,13 +69,27 @@
             this.label3PRICE.TabIndex = 1;
             this.label3PRICE.Text = "單價";
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(67, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "$";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // NProductBox
             // 
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3PRICE);
             this.Controls.Add(this.label1NAME);
             this.Controls.Add(this.pictureBox2);
             this.Name = "NProductBox";
             this.Size = new System.Drawing.Size(129, 162);
+            this.Load += new System.EventHandler(this.NProductBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -89,5 +104,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1NAME;
         private System.Windows.Forms.Label label3PRICE;
+        private System.Windows.Forms.Label label1;
     }
 }

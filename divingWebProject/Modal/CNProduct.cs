@@ -11,6 +11,8 @@ namespace divingWebProject.Modal
         public int fId { get; set; }
 
         public string fname { get; set; }
+        
+        public string fmemo { get; set; }
 
         public string fcolor { get; set; }
 
@@ -22,7 +24,7 @@ namespace divingWebProject.Modal
 
         public decimal fprice { get; set; }
 
-        public decimal fqty { get; set; }
+        public decimal fcost { get; set; }
 
         public byte[] fImage { get; set; }
 

@@ -29,6 +29,18 @@ namespace divingWebProject.View
         {
             displayNewProductBySql("SELECT * FROM tNproduct", false);
 
+            foreach (DataRow row in _ds.Tables[0].Rows)//右邊跑出圖片
+            {
+                CNProduct newproduct = new CNProduct();
+                newproduct.fname = (string)row["productname"];
+                newproduct.fprice = Convert.ToDecimal(row["Unitprice"]);
+                if (row["picture"] != DBNull.Value)
+                    newproduct.fImage = (byte[])row["picture"];
+                NProductBox x = new NProductBox();
+                x.newproduct = newproduct;
+                flowLayoutPanel1.Controls.Add(x);
+            }
+
         }
         private void displayNewProductBySql(string sql, bool isKeyword)
         {
@@ -56,21 +68,20 @@ namespace divingWebProject.View
         private void resetGridstyle()
         {
             dataGridView1.Columns[0].Width = 100;
-            dataGridView1.Columns[1].Width =200;
+            dataGridView1.Columns[1].Width = 200;
             dataGridView1.Columns[2].Width = 200;
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
             dataGridView1.Columns[5].Width = 300;
 
-            bool isColorChanged=false;   
-            foreach(DataGridViewRow r in dataGridView1.Rows)
+            bool isColorChanged = false;
+            foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                isColorChanged =! isColorChanged;
-                r.DefaultCellStyle.Font = new Font("微軟正黑體",14);
+                isColorChanged = !isColorChanged;
+                r.DefaultCellStyle.Font = new Font("微軟正黑體", 14);
                 r.DefaultCellStyle.BackColor = Color.DarkSeaGreen;
-                if(isColorChanged )
-                    r.DefaultCellStyle.BackColor= Color.CadetBlue;
-            
+                if (isColorChanged)
+                    r.DefaultCellStyle.BackColor = Color.CadetBlue;
             }
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -85,18 +96,20 @@ namespace divingWebProject.View
 
                 row["productName"] = f.newproduct.fname;
                 row["unitPrice"] = f.newproduct.fprice;
+                row["unitCost"] = f.newproduct.fcost;
+                row["description"] = f.newproduct.fmemo;
+                row["picture"] = f.newproduct.fImage;
                 //row["size"] = f.newproduct.fsize;
                 //row["color"] = f.newproduct.fcolor;
                 //row["gender"] = f.newproduct.fgender;
                 //row["thickness"] = f.newproduct.fthickness;
-                row["picture"] = f.newproduct.fImage;
                 dt.Rows.Add(row);
                 _da.Update(dataGridView1.DataSource as DataTable);
             }
         }
-            private void toolStripButton3_Click(object sender, EventArgs e)//查詢
-            {
-            
+        private void toolStripButton3_Click(object sender, EventArgs e)//查詢
+        {
+
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
                 foreach (DataGridViewCell c in r.Cells)
@@ -104,60 +117,10 @@ namespace divingWebProject.View
                     if (c.ColumnIndex == 0)
                         continue;
                     c.Style.BackColor = r.Cells[0].Style.BackColor;
-                    if (c.Value.ToString() .Contains( txtKeyword.Text))
+                    if (c.Value.ToString().Contains(txtKeyword.Text))
                         c.Style.BackColor = Color.Red;
-                
                 }
-            
             }
-            
-            //flowLayoutPanel1.Controls.Clear();
-            //string sql = "SELECT *FROM tNproduct WHERE ";
-            //sql += "productName LIKE @K_KEYWORD ";
-
-            //displayNewProductBySql(sql, true);
-
-
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
-            //con.Open();
-            //SqlDataAdapter da = new SqlDataAdapter(sql, con);
-            //da.SelectCommand.Parameters.Add(new SqlParameter("K_KEYWORD",
-            //        "%" + (object)txtKeyword + "%"));
-
-            //DataSet ds = new DataSet();
-            //da.Fill(ds);
-            //con.Close();
-
-            //foreach (DataRow row in ds.Tables[0].Rows)
-            //{
-            //    CNProduct newproduct = new CNProduct();
-            //    newproduct.fname = (string)row["productName"];
-            //    newproduct.fprice = Convert.ToDecimal(row["unitPrice"]);
-               
-                
-            //    if (row["picture"] != DBNull.Value)
-            //        newproduct.fImage = (byte[])row["picture"];
-
-
-            //    NProductBox x = new NProductBox();
-            //    x.newproduct = newproduct;
-            //    x.orderproduct+= this.ordernewproduct;
-            //    flowLayoutPanel1.Controls.Add(x);
-            //}
-            ////for (int i = 0;i<8;i++)
-            ////{
-
-            ////    NProductBox x = new NProductBox();
-            ////    x.Width = 250;
-            ////    x.Height = 200;
-            ////    x.BackColor = Color.White;
-
-            ////    flowLayoutPanel1.Controls.Add(x);
-
-            ////}
-
-
         }
         private void ordernewproduct(CNProduct p)
         {
@@ -173,31 +136,49 @@ namespace divingWebProject.View
         {
             if (_position < 0)
                 return;
-            DataTable dt=dataGridView1.DataSource as DataTable;
+            DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow row = dt.Rows[_position];
             row.Delete();
             _da.Update(dataGridView1.DataSource as DataTable);
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             if (_position < 0)
                 return;
-            DataRow row =(dataGridView1.DataSource as DataTable).Rows[_position];
-            FrmNewProductEditor f= new FrmNewProductEditor();
+            DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            FrmNewProductEditor f = new FrmNewProductEditor();
             CNProduct x = new CNProduct();
             x.fname = (string)row["productName"];
-            //f.newproduct.fprice = Convert.ToDecimal(row["unitPrice"]);
-            //f.newproduct.fImage= (byte[])row["picture"] ;
+            if (row["description"] != DBNull.Value)
+                x.fmemo = (string)row["description"];
+            x.fprice = Convert.ToDecimal(row["unitPrice"]);
+            x.fcost = Convert.ToDecimal(row["unitCost"]);
+            if (row["description"] != DBNull.Value)
+                x.fmemo = (string)row["description"];
+            ////x.fcolorId = (int)row["colorId"];
+            ////x.fthicknessId = (int)row["thicknessId"];
+            ////x.fsizeId = (int)row["sizeId"];
+            ////x.fgenderId = (int)row["genderId"];
+
+            if (row["picture"] != DBNull.Value)//如果資料庫裡不是NULL才讀
+                x.fImage = (byte[])row["picture"];
             f.newproduct = x;
             f.ShowDialog();
-            if(f.isOK== DialogResult.OK)
+            if (f.isOK == DialogResult.OK)
             {
                 row["productName"] = f.newproduct.fname;
-
-
-
+                row["description"] = f.newproduct.fmemo;
+                row["unitPrice"] = f.newproduct.fprice;
+                row["unitCost"] = f.newproduct.fcost;
+                //row["colorId"] = f.newproduct.fcolorId;
+                //row["thicknessId"] = f.newproduct.fthicknessId;
+                //row["sizeId"] = f.newproduct.fsizeId;
+                //row["genderId"] = f.newproduct.fgenderId;
+                row["picture"] = f.newproduct.fImage;
             }
+            _da.Update(dataGridView1.DataSource as DataTable);
         }
 
         private void FrmNewProduct_Paint(object sender, PaintEventArgs e)
@@ -205,4 +186,4 @@ namespace divingWebProject.View
             resetGridstyle();
         }
     }
-    } 
+}

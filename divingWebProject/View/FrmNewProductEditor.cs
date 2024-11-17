@@ -29,14 +29,35 @@ namespace divingWebProject.View
             {
                 if (_newproduct == null)
                     _newproduct = new CNProduct();
-                _newproduct.fId = Convert.ToInt32(fbId.filedValue);
+                try
+                {
+                    _newproduct.fId = Convert.ToInt32(fbId.filedValue);
+                }
+                catch { }
+                
                 _newproduct.fname = fbName.filedValue;
-                _newproduct.fgender = fbGender.filedValue;
-                _newproduct.fthickness = fbThickness.filedValue;
+                _newproduct.fmemo = fbMemo.filedValue;
+                try
+                {
+                    _newproduct.fcost = Convert.ToDecimal(fbCost.filedValue.Trim());
+                }
+                catch { }
+               
+                try
+                {
+                    
+                    _newproduct.fprice = Convert.ToDecimal(fbPrice.filedValue.Trim());
+                }
+                catch { }
+                //_newproduct.fId = Convert.ToInt32(fbId.filedValue);
+                //_newproduct.fcost = Convert.ToDecimal(fbCost.filedValue.Trim());
+                //_newproduct.fprice = Convert.ToDecimal(fbPrice.filedValue.Trim());
+                //_newproduct.fgender = fbGender.filedValue;
+                //_newproduct.fthickness = fbThickness.filedValue;
                 //_newproduct.fqty = Convert.ToDecimal(fbqty.filedValue);
-                //_newproduct.fprice = Convert.ToDecimal(fbPrice.filedValue);
-                _newproduct.fsize = fbSize.filedValue;
-                _newproduct.fcolor = fbColor.filedValue;
+
+                //_newproduct.fsize = fbSize.filedValue;
+                //_newproduct.fcolor = fbColor.filedValue;
 
                 return _newproduct;
             }
@@ -45,13 +66,13 @@ namespace divingWebProject.View
                 _newproduct = value;
                 fbId.filedValue = _newproduct.fId.ToString();
                 fbName.filedValue = _newproduct.fname;
-                fbGender.filedValue = _newproduct.fgender;
-                fbThickness.filedValue = _newproduct.fthickness;
-                fbQty.filedValue= _newproduct.fqty.ToString();
+                fbMemo.filedValue = _newproduct.fmemo;
+                fbCost.filedValue= _newproduct.fcost.ToString();
                 fbPrice.filedValue= _newproduct.fprice.ToString();
-                fbSize.filedValue = _newproduct.fsize;
-                fbColor.filedValue = _newproduct.fcolor;
-
+                //fbSize.filedValue = _newproduct.fsize;
+                //fbColor.filedValue = _newproduct.fcolor;
+                //fbGender.filedValue = _newproduct.fgender;
+                //fbThickness.filedValue = _newproduct.fthickness;
                 if (_newproduct.fImage != null)
                 {
                     try 

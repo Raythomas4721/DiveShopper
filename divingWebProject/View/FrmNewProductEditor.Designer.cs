@@ -33,14 +33,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.fbMemo = new divingWebProject.Modal.NFieldBox();
             this.fbPrice = new divingWebProject.Modal.NFieldBox();
-            this.fbQty = new divingWebProject.Modal.NFieldBox();
+            this.fbCost = new divingWebProject.Modal.NFieldBox();
             this.fbThickness = new divingWebProject.Modal.NFieldBox();
             this.fbGender = new divingWebProject.Modal.NFieldBox();
             this.fbSize = new divingWebProject.Modal.NFieldBox();
             this.fbColor = new divingWebProject.Modal.NFieldBox();
             this.fbName = new divingWebProject.Modal.NFieldBox();
             this.fbId = new divingWebProject.Modal.NFieldBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,66 +93,79 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // fbMemo
+            // 
+            this.fbMemo.filedName = "說明";
+            this.fbMemo.filedValue = "";
+            this.fbMemo.Location = new System.Drawing.Point(21, 337);
+            this.fbMemo.Name = "fbMemo";
+            this.fbMemo.Size = new System.Drawing.Size(222, 54);
+            this.fbMemo.TabIndex = 8;
+            // 
             // fbPrice
             // 
             this.fbPrice.filedName = "price";
             this.fbPrice.filedValue = "";
-            this.fbPrice.Location = new System.Drawing.Point(323, 350);
+            this.fbPrice.Location = new System.Drawing.Point(21, 230);
             this.fbPrice.Name = "fbPrice";
             this.fbPrice.Size = new System.Drawing.Size(89, 54);
             this.fbPrice.TabIndex = 7;
             // 
-            // fbQty
+            // fbCost
             // 
-            this.fbQty.filedName = "qty";
-            this.fbQty.filedValue = "";
-            this.fbQty.Location = new System.Drawing.Point(462, 350);
-            this.fbQty.Name = "fbQty";
-            this.fbQty.Size = new System.Drawing.Size(81, 54);
-            this.fbQty.TabIndex = 7;
+            this.fbCost.filedName = "cost";
+            this.fbCost.filedValue = "";
+            this.fbCost.Location = new System.Drawing.Point(162, 230);
+            this.fbCost.Name = "fbCost";
+            this.fbCost.Size = new System.Drawing.Size(81, 54);
+            this.fbCost.TabIndex = 7;
             // 
             // fbThickness
             // 
             this.fbThickness.filedName = "thicknessId";
             this.fbThickness.filedValue = "";
-            this.fbThickness.Location = new System.Drawing.Point(21, 350);
+            this.fbThickness.Location = new System.Drawing.Point(410, 361);
             this.fbThickness.Name = "fbThickness";
-            this.fbThickness.Size = new System.Drawing.Size(222, 54);
+            this.fbThickness.Size = new System.Drawing.Size(119, 54);
             this.fbThickness.TabIndex = 0;
+            this.fbThickness.Visible = false;
             // 
             // fbGender
             // 
             this.fbGender.filedName = "gender";
             this.fbGender.filedValue = "";
-            this.fbGender.Location = new System.Drawing.Point(146, 177);
+            this.fbGender.Location = new System.Drawing.Point(383, 301);
             this.fbGender.Name = "fbGender";
-            this.fbGender.Size = new System.Drawing.Size(97, 54);
+            this.fbGender.Size = new System.Drawing.Size(77, 54);
             this.fbGender.TabIndex = 0;
+            this.fbGender.Visible = false;
             this.fbGender.Load += new System.EventHandler(this.nFieldBox5_Load);
             // 
             // fbSize
             // 
             this.fbSize.filedName = "size";
             this.fbSize.filedValue = "";
-            this.fbSize.Location = new System.Drawing.Point(21, 177);
+            this.fbSize.Location = new System.Drawing.Point(466, 301);
             this.fbSize.Name = "fbSize";
-            this.fbSize.Size = new System.Drawing.Size(91, 54);
+            this.fbSize.Size = new System.Drawing.Size(63, 54);
             this.fbSize.TabIndex = 0;
+            this.fbSize.Visible = false;
             // 
             // fbColor
             // 
             this.fbColor.filedName = "color";
             this.fbColor.filedValue = "";
-            this.fbColor.Location = new System.Drawing.Point(21, 262);
+            this.fbColor.Location = new System.Drawing.Point(350, 361);
             this.fbColor.Name = "fbColor";
-            this.fbColor.Size = new System.Drawing.Size(222, 54);
+            this.fbColor.Size = new System.Drawing.Size(54, 54);
             this.fbColor.TabIndex = 0;
+            this.fbColor.Visible = false;
             // 
             // fbName
             // 
             this.fbName.filedName = "name";
             this.fbName.filedValue = "";
-            this.fbName.Location = new System.Drawing.Point(21, 102);
+            this.fbName.Location = new System.Drawing.Point(21, 140);
             this.fbName.Name = "fbName";
             this.fbName.Size = new System.Drawing.Size(222, 69);
             this.fbName.TabIndex = 0;
@@ -165,13 +180,27 @@
             this.fbId.Size = new System.Drawing.Size(134, 44);
             this.fbId.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.ForeColor = System.Drawing.Color.Orange;
+            this.label5.Location = new System.Drawing.Point(346, 260);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "<點2下新增照片>";
+            // 
             // FrmNewProductEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 521);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.fbMemo);
             this.Controls.Add(this.fbPrice);
-            this.Controls.Add(this.fbQty);
+            this.Controls.Add(this.fbCost);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -188,6 +217,7 @@
             this.Load += new System.EventHandler(this.FrmNewProductEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -203,8 +233,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private Modal.NFieldBox fbQty;
+        private Modal.NFieldBox fbCost;
         private Modal.NFieldBox fbPrice;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Modal.NFieldBox fbMemo;
+        private System.Windows.Forms.Label label5;
     }
 }

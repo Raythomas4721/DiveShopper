@@ -15,15 +15,13 @@ namespace divingWebProject.Modal
     public partial class NProductBox : UserControl
     {
         
-        public event DProductClick orderproduct;//用delegate 創造事件
+        //public event DProductClick orderproduct;//用delegate 創造事件
         private CNProduct _newproduct;
         public NProductBox()
         {
             InitializeComponent();
         }
-
         
-
         public CNProduct newproduct
         {
             get { return _newproduct; }
@@ -33,16 +31,30 @@ namespace divingWebProject.Modal
                 _newproduct = value;
                 label1NAME.Text = _newproduct.fname;
                 label3PRICE.Text = _newproduct.fprice.ToString();
-                Stream s = new MemoryStream(_newproduct.fImage);
-                pictureBox2.Image = Bitmap.FromStream(s);
+                if (_newproduct.fImage == null) // 檢查 fImage 是否為 null
+                    return;
 
+                    Stream s = new MemoryStream(_newproduct.fImage);
+                    pictureBox2.Image = Bitmap.FromStream(s);
+                
+              
             }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (orderproduct != null)
-                orderproduct(this._newproduct);
+            //if (orderproduct != null)
+            //    orderproduct(this._newproduct);
+        }
+
+        private void NProductBox_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void lblName_Click(object sender, EventArgs e)
