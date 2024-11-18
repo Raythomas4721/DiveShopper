@@ -40,6 +40,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.fbUpdatedAt = new divingWebProject.View.FieldBox();
             this.fbCreatedAt = new divingWebProject.View.FieldBox();
             this.fbCoursePrice = new divingWebProject.View.FieldBox();
@@ -113,8 +114,10 @@
             this.pictureBox1.Location = new System.Drawing.Point(533, 100);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(337, 235);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // label4
             // 
@@ -176,6 +179,10 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "上列資料請填寫完整";
             this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // fbUpdatedAt
             // 
@@ -268,5 +275,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
