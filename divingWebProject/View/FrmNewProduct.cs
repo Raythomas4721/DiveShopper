@@ -19,6 +19,7 @@ namespace divingWebProject.View
         SqlCommandBuilder _builder;
         int _position = -1;
         DataSet _ds = null;
+      
 
         public FrmNewProduct()
         {
@@ -33,7 +34,9 @@ namespace divingWebProject.View
             {
                 CNProduct newproduct = new CNProduct();
                 newproduct.fname = (string)row["productname"];
-                newproduct.fprice = Convert.ToDecimal(row["Unitprice"]);
+                if (row["Unitprice"] != DBNull.Value)
+                    newproduct.fprice = Convert.ToDecimal(row["Unitprice"]);
+                
                 if (row["picture"] != DBNull.Value)
                     newproduct.fImage = (byte[])row["picture"];
                 NProductBox x = new NProductBox();
@@ -60,7 +63,6 @@ namespace divingWebProject.View
             con.Close();
             dataGridView1.DataSource = _ds.Tables[0];
             _da.Update(dataGridView1.DataSource as DataTable);
-
             resetGridstyle();
 
         }
@@ -105,6 +107,11 @@ namespace divingWebProject.View
                 //row["thickness"] = f.newproduct.fthickness;
                 dt.Rows.Add(row);
                 _da.Update(dataGridView1.DataSource as DataTable);
+
+
+
+   
+
             }
         }
         private void toolStripButton3_Click(object sender, EventArgs e)//查詢
@@ -140,6 +147,8 @@ namespace divingWebProject.View
             DataRow row = dt.Rows[_position];
             row.Delete();
             _da.Update(dataGridView1.DataSource as DataTable);
+            
+
 
         }
 
@@ -153,8 +162,10 @@ namespace divingWebProject.View
             x.fname = (string)row["productName"];
             if (row["description"] != DBNull.Value)
                 x.fmemo = (string)row["description"];
+           if(row["unitPrice"] != DBNull.Value)
             x.fprice = Convert.ToDecimal(row["unitPrice"]);
-            x.fcost = Convert.ToDecimal(row["unitCost"]);
+            if (row["unitCost"] != DBNull.Value)
+                x.fcost = Convert.ToDecimal(row["unitCost"]);
             if (row["description"] != DBNull.Value)
                 x.fmemo = (string)row["description"];
             ////x.fcolorId = (int)row["colorId"];
@@ -179,11 +190,18 @@ namespace divingWebProject.View
                 row["picture"] = f.newproduct.fImage;
             }
             _da.Update(dataGridView1.DataSource as DataTable);
+        
+
         }
 
         private void FrmNewProduct_Paint(object sender, PaintEventArgs e)
         {
             resetGridstyle();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }

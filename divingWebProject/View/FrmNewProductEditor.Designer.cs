@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewProductEditor));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label5 = new System.Windows.Forms.Label();
             this.fbMemo = new divingWebProject.Modal.NFieldBox();
             this.fbPrice = new divingWebProject.Modal.NFieldBox();
             this.fbCost = new divingWebProject.Modal.NFieldBox();
@@ -42,7 +44,6 @@
             this.fbColor = new divingWebProject.Modal.NFieldBox();
             this.fbName = new divingWebProject.Modal.NFieldBox();
             this.fbId = new divingWebProject.Modal.NFieldBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +61,12 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(310, 449);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 60);
@@ -70,6 +77,12 @@
             // 
             // button2
             // 
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(463, 449);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 60);
@@ -92,6 +105,18 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label5.Location = new System.Drawing.Point(346, 260);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "<點2下新增照片>";
             // 
             // fbMemo
             // 
@@ -175,27 +200,16 @@
             // 
             this.fbId.filedName = "產品編號";
             this.fbId.filedValue = "1";
-            this.fbId.Location = new System.Drawing.Point(21, 12);
+            this.fbId.Location = new System.Drawing.Point(21, 63);
             this.fbId.Name = "fbId";
             this.fbId.Size = new System.Drawing.Size(134, 44);
             this.fbId.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.ForeColor = System.Drawing.Color.Orange;
-            this.label5.Location = new System.Drawing.Point(346, 260);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 24);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "<點2下新增照片>";
             // 
             // FrmNewProductEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(577, 521);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.fbMemo);
@@ -211,6 +225,7 @@
             this.Controls.Add(this.fbColor);
             this.Controls.Add(this.fbName);
             this.Controls.Add(this.fbId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmNewProductEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNewProductEditor";
