@@ -11,23 +11,17 @@ namespace divingWebProject.Modal
         public int fId { get; set; }
 
         public string fname { get; set; }
-        
+
         public string fmemo { get; set; }
-
-        public string fcolor { get; set; }
-
-        public string fgender { get; set; }
-
-        public string fsize { get; set; }
-
-        public string fthickness { get; set; }
 
         public decimal fprice { get; set; }
 
         public decimal fcost { get; set; }
 
         public byte[] fImage { get; set; }
+   
 
+        
 
 
     }

@@ -160,7 +160,11 @@ namespace divingWebProject.View
             Close();
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmNewProductvariant f = new FrmNewProductvariant();
+            f.ShowDialog();
+        }
     }
     }
 

@@ -65,6 +65,19 @@
     </Compile>
     <Compile Include="Modal\CNorder.cs" />
     <Compile Include="Modal\CNProduct.cs" />
+    <Compile Include="Modal\CNProductvariant.cs" />
+    <Compile Include="View\FrmNewProductvariant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmNewProductvariant.Designer.cs">
+      <DependentUpon>FrmNewProductvariant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmProductvariantEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmProductvariantEditor.Designer.cs">
+      <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NFieldBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +161,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmNewProductvariant.resx">
+      <DependentUpon>FrmNewProductvariant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmProductvariantEditor.resx">
+      <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NFieldBox.resx">
       <DependentUpon>NFieldBox.cs</DependentUpon>
