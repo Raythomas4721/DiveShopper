@@ -38,7 +38,7 @@ namespace divingWebProject.View
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+            (new FrmMLogin()).ShowDialog();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)

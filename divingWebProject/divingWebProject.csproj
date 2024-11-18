@@ -52,6 +52,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modal\CMmember.cs" />
+    <Compile Include="Modal\CMmemberManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\FrmAdminSetting.cs">
@@ -59,6 +61,12 @@
     </Compile>
     <Compile Include="View\FrmAdminSetting.Designer.cs">
       <DependentUpon>FrmAdminSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmCoachList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCoachList.Designer.cs">
+      <DependentUpon>FrmCoachList.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmCourse.cs">
       <SubType>Form</SubType>
@@ -77,6 +85,18 @@
     </Compile>
     <Compile Include="View\FrmMember.Designer.cs">
       <DependentUpon>FrmMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMLogin.Designer.cs">
+      <DependentUpon>FrmMLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMmemberEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMmemberEditor.Designer.cs">
+      <DependentUpon>FrmMmemberEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmNewProduct.cs">
       <SubType>Form</SubType>
@@ -108,6 +128,12 @@
     <Compile Include="View\FrmUsedProduct.Designer.cs">
       <DependentUpon>FrmUsedProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\MemberFieldBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\MemberFieldBox.Designer.cs">
+      <DependentUpon>MemberFieldBox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +158,12 @@
     <EmbeddedResource Include="View\FrmMember.resx">
       <DependentUpon>FrmMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMLogin.resx">
+      <DependentUpon>FrmMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMmemberEditor.resx">
+      <DependentUpon>FrmMmemberEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmNewProduct.resx">
       <DependentUpon>FrmNewProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +179,9 @@
     <EmbeddedResource Include="View\FrmUsedProduct.resx">
       <DependentUpon>FrmUsedProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\MemberFieldBox.resx">
+      <DependentUpon>MemberFieldBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,8 +195,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modal\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
