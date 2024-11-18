@@ -37,7 +37,7 @@ namespace divingWebProject.View
                 row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["createdAt"] = f.usedProduct.createdAt;
-
+                row["productStatus"] = f.usedProduct.productStatus; //bool
 
                 dt.Rows.Add(row);
             }
@@ -94,6 +94,7 @@ namespace divingWebProject.View
             x.productId = Convert.ToInt32(row["productId"]);  // 假設 productId 是 int 類型
             x.sellerId = Convert.ToInt32(row["sellerId"]);  // 假設 sellerId 是 int 類型
             x.updatedAt = DateTime.Now.ToString();
+            x.productStatus = row["productStatus"] != DBNull.Value ? Convert.ToBoolean(row["productStatus"]) : false;
 
             int categoryId;
             if (int.TryParse(row["categoryId"].ToString(), out categoryId))
@@ -118,6 +119,7 @@ namespace divingWebProject.View
                 row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["updatedAt"] = f.usedProduct.updatedAt;
+                row["productStatus"]= f.usedProduct.productStatus; //bool
             }
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -139,18 +141,28 @@ namespace divingWebProject.View
             resetGridStyle();
         }
 
-        private void resetGridStyle()
+        private void resetGridStyle() //重製表格風格
         {
-            dataGridView1.Columns[0].Width = 100;
-            dataGridView1.Columns[1].Width = 100;
-            dataGridView1.Columns[2].Width = 80;
-            dataGridView1.Columns[3].Width = 100;
-            dataGridView1.Columns[4].Width = 100;
+            dataGridView1.Columns[0].Width = 120;
+            dataGridView1.Columns[1].Width = 120;
+            dataGridView1.Columns[2].Width = 120;
+            dataGridView1.Columns[3].Width = 120;
+            dataGridView1.Columns[4].Width = 120;
             dataGridView1.Columns[5].Width = 150;
             dataGridView1.Columns[6].Width = 250;
             dataGridView1.Columns[7].Width = 250;
-            dataGridView1.Columns[8].Width = 80;
-            dataGridView1.Columns[9].Width = dataGridView1.Width - 1210 - dataGridView1.RowHeadersWidth;
+            dataGridView1.Columns[8].Width = 120;
+            //dataGridView1.Columns[9].Width = dataGridView1.Width - 1370 - dataGridView1.RowHeadersWidth;
+            dataGridView1.Columns["productName"].HeaderText = "產品名稱";
+            dataGridView1.Columns["productId"].HeaderText = "產品ID";
+            dataGridView1.Columns["sellerId"].HeaderText = "買家ID";
+            dataGridView1.Columns["categoryId"].HeaderText = "商品分類";
+            dataGridView1.Columns["productPrice"].HeaderText = "價錢";
+            dataGridView1.Columns["productConditionId"].HeaderText = "狀況";
+            dataGridView1.Columns["productDescription"].HeaderText = "商品描述";
+            dataGridView1.Columns["productStatus"].HeaderText = "上架狀態";
+            dataGridView1.Columns["updatedAt"].HeaderText = "更新時間";
+            dataGridView1.Columns["createdAt"].HeaderText = "上架時間";
 
             bool isColorChanged = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)

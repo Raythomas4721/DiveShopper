@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsedProduct));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Revise = new System.Windows.Forms.ToolStripButton();
@@ -51,7 +52,7 @@
             this.toolStripTextBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1261, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(946, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -61,7 +62,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(88, 36);
+            this.toolStripButton1.Size = new System.Drawing.Size(78, 36);
             this.toolStripButton1.Text = "新增";
             this.toolStripButton1.Click += new System.EventHandler(this.Create_Click);
             // 
@@ -71,7 +72,7 @@
             this.Revise.Image = ((System.Drawing.Image)(resources.GetObject("Revise.Image")));
             this.Revise.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Revise.Name = "Revise";
-            this.Revise.Size = new System.Drawing.Size(88, 36);
+            this.Revise.Size = new System.Drawing.Size(78, 36);
             this.Revise.Text = "修改";
             this.Revise.Click += new System.EventHandler(this.Revise_Click);
             // 
@@ -81,7 +82,7 @@
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(88, 36);
+            this.Delete.Size = new System.Drawing.Size(78, 36);
             this.Delete.Text = "刪除";
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
@@ -92,7 +93,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(88, 36);
+            this.toolStripButton4.Size = new System.Drawing.Size(78, 36);
             this.toolStripButton4.Text = "查詢";
             this.toolStripButton4.Click += new System.EventHandler(this.Search_Click);
             // 
@@ -102,31 +103,38 @@
             this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.toolStripTextBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(159, 39);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(120, 39);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 39);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1261, 657);
+            this.dataGridView1.Size = new System.Drawing.Size(946, 518);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FrmUsedProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1261, 696);
+            this.ClientSize = new System.Drawing.Size(946, 557);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUsedProduct";
             this.Text = "FrmUsedProduct";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
