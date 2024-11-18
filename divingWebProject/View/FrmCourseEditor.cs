@@ -56,7 +56,7 @@ namespace divingWebProject.View
         }
 
         private void FrmCourseEditor_Load(object sender, EventArgs e)
-        {//後續可以數字加上中文，再用Substring之類的方法擷取
+        {//後續可以嘗試用comboBox顯示資料(詳見google雲端文件)
             cbbCategoryId.Items.Add("1"); //浮潛
             cbbCategoryId.Items.Add("2"); //自由潛水
             cbbCategoryId.Items.Add("3"); //水肺潛水
