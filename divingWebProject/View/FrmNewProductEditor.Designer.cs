@@ -54,6 +54,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // button1
@@ -155,7 +156,7 @@
             // fbId
             // 
             this.fbId.filedName = "產品編號";
-            this.fbId.filedValue = "1";
+            this.fbId.filedValue = "";
             this.fbId.Location = new System.Drawing.Point(21, 63);
             this.fbId.Name = "fbId";
             this.fbId.Size = new System.Drawing.Size(134, 44);

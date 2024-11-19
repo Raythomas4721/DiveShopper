@@ -57,28 +57,5 @@ namespace divingWebProject.Modal
 
         }
 
-        //private void lblName_Click(object sender, EventArgs e)
-        //{
-        //    if (orderRoom != null)
-        //        orderRoom(this._room);
-        //}
-
-        //private void lblMemo_Click(object sender, EventArgs e)
-        //{
-        //    if (orderRoom != null)
-        //        orderRoom(this._room);
-        //}
-
-        //private void lblPrice_Click(object sender, EventArgs e)
-        //{
-        //    if (orderRoom != null)
-        //        orderRoom(this._room);
-        //}
-
-        //private void pictureBox1_Click(object sender, EventArgs e)
-        //{
-        //    if (orderRoom != null)
-        //        orderRoom(this._room);
-        //}
     }
 }

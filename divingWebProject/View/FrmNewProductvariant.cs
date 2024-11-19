@@ -19,7 +19,7 @@ namespace divingWebProject.View
             InitializeComponent();
         }
 
-        private List<int> _listPK;
+        
         int _position = -1;
         private void displayNewProductvariantsBySql(string sql, bool isKeyword)
         {
@@ -48,7 +48,7 @@ namespace divingWebProject.View
         }
 
 
-        private void resetGridstyle()//第二個表
+        private void resetGridstyle()
         {
             dataGridView1.Columns[0].Width = 100;
             dataGridView1.Columns[1].Width = 200;
@@ -56,8 +56,15 @@ namespace divingWebProject.View
             dataGridView1.Columns[3].Width = 300;
             dataGridView1.Columns[4].Width = 300;
             dataGridView1.Columns[5].Width = 300;
-            dataGridView1.Columns[6].Width = 300;
+          
 
+            dataGridView1.Columns["productvariantsId"].HeaderText = "進貨ID";
+            dataGridView1.Columns["productId"].HeaderText = "產品ID";
+            dataGridView1.Columns["sizeId"].HeaderText = "尺寸編號";
+            dataGridView1.Columns["colorId"].HeaderText = "顏色編號";
+            dataGridView1.Columns["thicknessId"].HeaderText = "厚度編號";
+            dataGridView1.Columns["genderId"].HeaderText = "性別編號";
+            dataGridView1.Columns["stock"].HeaderText = "進貨量";
 
             bool isColorChanged = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)
@@ -121,29 +128,34 @@ namespace divingWebProject.View
             }
         }
 
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        private void toolStripButton1_Click_1(object sender, EventArgs e)//修改
         {
+
             if (_position < 0)
                 return;
             DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            int productId = (int)row["productId"];
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM tNproductvariants ";
+            cmd.CommandText = "SELECT * FROM tNproductvariants WHERE productId= @K_FID ";
+            cmd.Parameters.AddWithValue("@K_FID", productId);
             SqlDataReader reader = cmd.ExecuteReader();
             CNProductvariant x = null;
+            int fid=0;
             if (reader.Read())
             {
                 x = new CNProductvariant();
-                x.fId = (int)reader["產品編號"];
-                x.fsize = (int)reader["尺寸編號"];
-                x.fcolor = (int)reader["顏色編號"];
-                x.fthickness = (int)reader["厚度編號"];
-                x.fgender = (int)reader["性別編號"];
-                x.fstock = (int)reader["進貨量"];
+                x.fId = (int)reader["productId"];
+                x.fsize = (int)reader["sizeId"];
+                x.fcolor = (int)reader["colorId"];
+                x.fthickness = (int)reader["thicknessId"];
+                x.fgender = (int)reader["genderId"];
+                x.fstock = (int)reader["stock"];
+                fid = (int)reader["productvariantsId"];
             }
             con.Close();
 
@@ -155,8 +167,7 @@ namespace divingWebProject.View
 
             if (f.isOK == DialogResult.OK)
             {
-
-                (new CNProductManger()).update(f.newproductvariant);
+                (new CNProductManger()).update(f.newproductvariant,fid);
                 displayNewProductvariantsBySql("SELECT *FROM tNproductvariants", false);
             }
         }

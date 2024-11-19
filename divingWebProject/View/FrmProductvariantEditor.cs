@@ -25,16 +25,12 @@ namespace divingWebProject.View
             {
                 if (_newproductvariant == null)
                     _newproductvariant = new CNProductvariant();
-                try
-                {
+              
                     _newproductvariant.fId = Convert.ToInt32(fbId.filedValue);
-                }
-                catch { }
-
-                _newproductvariant.fcolor = fbColor.SelectedIndex + 1;
-                _newproductvariant.fsize = fbSize.SelectedIndex + 1;
-                _newproductvariant.fgender = fbGender.SelectedIndex + 1;
-                _newproductvariant.fthickness = fbThickness.SelectedIndex + 1;
+                _newproductvariant.fcolor = fbColor.SelectedIndex;
+                _newproductvariant.fsize = fbSize.SelectedIndex;
+                _newproductvariant.fgender = fbGender.SelectedIndex;
+                _newproductvariant.fthickness = fbThickness.SelectedIndex;
                 _newproductvariant.fstock = Convert.ToInt32(fbstock.filedValue);
                 return _newproductvariant;
             }
@@ -48,17 +44,6 @@ namespace divingWebProject.View
                 fbThickness.SelectedIndex = _newproductvariant.fthickness;
                 fbstock.filedValue = _newproductvariant.fstock.ToString();
             }
-        }
-
-        private void uiButton1_Click(object sender, EventArgs e)
-        {
-            this.isOK = DialogResult.OK;
-            Close();
-        }
-
-        private void uiButton2_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -83,6 +68,13 @@ namespace divingWebProject.View
 
         private void uiButton2_Click_1(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void uiButton1_Click_1(object sender, EventArgs e)
+        {
+
+            this.isOK = DialogResult.OK;
             Close();
         }
     }

@@ -17,7 +17,6 @@ namespace divingWebProject.View
         SqlDataAdapter _da;
         SqlCommandBuilder _builder;
         int _position = -1;
-        int _position2 = -1;
         DataSet _ds = null;
 
 
@@ -54,17 +53,19 @@ namespace divingWebProject.View
             foreach (DataRow row in _ds.Tables["tNproduct"].Rows)//右邊跑出圖片
             {
                 CNProduct newproduct = new CNProduct();
-                newproduct.fname = (string)row["產品名稱"];
-                if (row["單價"] != DBNull.Value)
-                    newproduct.fprice = Convert.ToDecimal(row["單價"]);
+                newproduct.fname = (string)row["productName"];
+                if (row["unitPrice"] != DBNull.Value)
+                    newproduct.fprice = Convert.ToDecimal(row["unitPrice"]);
 
-                if (row["照片"] != DBNull.Value)
-                    newproduct.fImage = (byte[])row["照片"];
+                if (row["picture"] != DBNull.Value)
+                    newproduct.fImage = (byte[])row["picture"];
                 NProductBox x = new NProductBox();
                 x.newproduct = newproduct;
+                
                 flowLayoutPanel1.Controls.Add(x);
             }
             resetGridstyle1();
+            
         }
 
 
@@ -75,7 +76,14 @@ namespace divingWebProject.View
             dataGridView1.Columns[2].Width = 200;
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
-            dataGridView1.Columns[5].Width = 300;
+
+            dataGridView1.Columns["productName"].HeaderText = "產品名稱";
+            dataGridView1.Columns["productId"].HeaderText = "產品ID";
+            dataGridView1.Columns["unitPrice"].HeaderText = "單價";
+            dataGridView1.Columns["unitCost"].HeaderText = "成本";
+            dataGridView1.Columns["picture"].HeaderText = "產品照片";
+           
+
 
             bool isColorChanged1 = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)
@@ -96,12 +104,12 @@ namespace divingWebProject.View
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 DataRow row = dt.NewRow();
-                row["產品編號"] = f.newproduct.fId;
-                row["產品名稱"] = f.newproduct.fname;
-                row["單價"] = f.newproduct.fprice;
-                row["成本"] = f.newproduct.fcost;
-                row["說明"] = f.newproduct.fmemo;
-                row["照片"] = f.newproduct.fImage;
+                row["productId"] = f.newproduct.fId;
+                row["productName"] = f.newproduct.fname;
+                row["unitPrice"] = f.newproduct.fprice;
+                row["unitCost"] = f.newproduct.fcost;
+                row["description"] = f.newproduct.fmemo;
+                row["picture"] = f.newproduct.fImage;
                 dt.Rows.Add(row);
                 _da.Update(dataGridView1.DataSource as DataTable);
 
@@ -146,28 +154,28 @@ namespace divingWebProject.View
             FrmNewProductEditor f = new FrmNewProductEditor();
             CNProduct x = new CNProduct();
 
-            x.fId = (int)row["產品編號"];
-            x.fname = (string)row["產品名稱"];
-            if (row["說明"] != DBNull.Value)
-                x.fmemo = (string)row["說明"];
-            if (row["單價"] != DBNull.Value)
-                x.fprice = Convert.ToDecimal(row["單價"]);
-            if (row["成本"] != DBNull.Value)
-                x.fcost = Convert.ToDecimal(row["成本"]);
-            if (row["說明"] != DBNull.Value)
-                x.fmemo = (string)row["說明"];
-            if (row["照片"] != DBNull.Value)//如果資料庫裡不是NULL才讀
-                x.fImage = (byte[])row["照片"];
+            x.fId = (int)row["productId"];
+            x.fname = (string)row["productName"];
+            if (row["description"] != DBNull.Value)
+                x.fmemo = (string)row["description"];
+            if (row["unitPrice"] != DBNull.Value)
+                x.fprice = Convert.ToDecimal(row["unitPrice"]);
+            if (row["unitCost"] != DBNull.Value)
+                x.fcost = Convert.ToDecimal(row["unitCost"]);
+            if (row["description"] != DBNull.Value)
+                x.fmemo = (string)row["description"];
+            if (row["picture"] != DBNull.Value)//如果資料庫裡不是NULL才讀
+                x.fImage = (byte[])row["picture"];
             f.newproduct = x;
             f.ShowDialog();
             if (f.isOK == DialogResult.OK)
             {
-                row["產品編號"] = f.newproduct.fId;
-                row["產品名稱"] = f.newproduct.fname;
-                row["說明"] = f.newproduct.fmemo;
-                row["單價"] = f.newproduct.fprice;
-                row["成本"] = f.newproduct.fcost;
-                row["照片"] = f.newproduct.fImage;
+                row["productId"] = f.newproduct.fId;
+                row["productName"] = f.newproduct.fname;
+                row["description"] = f.newproduct.fmemo;
+                row["unitPrice"] = f.newproduct.fprice;
+                row["unitCost"] = f.newproduct.fcost;
+                row["picture"] = f.newproduct.fImage;
             }
             _da.Update(dataGridView1.DataSource as DataTable);
             resetGridstyle1();
@@ -180,13 +188,20 @@ namespace divingWebProject.View
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void FrmNewProduct_FormClosed(object sender, FormClosedEventArgs e)
         {
             _da.Update(dataGridView1.DataSource as DataTable);
 
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            displayNewProductBySql("SELECT * FROM tNproduct ", false);
+            
         }
     }
 }

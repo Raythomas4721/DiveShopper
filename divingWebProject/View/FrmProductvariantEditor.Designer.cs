@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fbId = new divingWebProject.Modal.NFieldBox();
-            this.fbstock = new divingWebProject.Modal.NFieldBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,25 +38,9 @@
             this.fbThickness = new Sunny.UI.UIComboBox();
             this.uiButton1 = new Sunny.UI.UIButton();
             this.uiButton2 = new Sunny.UI.UIButton();
+            this.fbstock = new divingWebProject.Modal.NFieldBox();
+            this.fbId = new divingWebProject.Modal.NFieldBox();
             this.SuspendLayout();
-            // 
-            // fbId
-            // 
-            this.fbId.filedName = "編號";
-            this.fbId.filedValue = "";
-            this.fbId.Location = new System.Drawing.Point(52, 12);
-            this.fbId.Name = "fbId";
-            this.fbId.Size = new System.Drawing.Size(139, 55);
-            this.fbId.TabIndex = 1;
-            // 
-            // fbstock
-            // 
-            this.fbstock.filedName = "數量";
-            this.fbstock.filedValue = "";
-            this.fbstock.Location = new System.Drawing.Point(52, 73);
-            this.fbstock.Name = "fbstock";
-            this.fbstock.Size = new System.Drawing.Size(139, 55);
-            this.fbstock.TabIndex = 2;
             // 
             // label4
             // 
@@ -207,7 +189,8 @@
             this.uiButton1.Size = new System.Drawing.Size(86, 45);
             this.uiButton1.TabIndex = 13;
             this.uiButton1.Text = "確認";
-            this.uiButton1.TipsFont = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.uiButton1.TipsFont = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click_1);
             // 
             // uiButton2
             // 
@@ -219,8 +202,26 @@
             this.uiButton2.Size = new System.Drawing.Size(86, 45);
             this.uiButton2.TabIndex = 14;
             this.uiButton2.Text = "取消";
-            this.uiButton2.TipsFont = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.uiButton2.TipsFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click_1);
+            // 
+            // fbstock
+            // 
+            this.fbstock.filedName = "數量";
+            this.fbstock.filedValue = "";
+            this.fbstock.Location = new System.Drawing.Point(52, 73);
+            this.fbstock.Name = "fbstock";
+            this.fbstock.Size = new System.Drawing.Size(139, 55);
+            this.fbstock.TabIndex = 2;
+            // 
+            // fbId
+            // 
+            this.fbId.filedName = "產品編號";
+            this.fbId.filedValue = "";
+            this.fbId.Location = new System.Drawing.Point(52, 12);
+            this.fbId.Name = "fbId";
+            this.fbId.Size = new System.Drawing.Size(139, 55);
+            this.fbId.TabIndex = 1;
             // 
             // FrmProductvariantEditor
             // 
@@ -240,6 +241,7 @@
             this.Controls.Add(this.fbstock);
             this.Controls.Add(this.fbId);
             this.Name = "FrmProductvariantEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProductvariantEditor";
             this.ResumeLayout(false);
             this.PerformLayout();
