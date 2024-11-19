@@ -52,12 +52,12 @@ namespace divingWebProject.View
 
         private void FrmMLogin_Load(object sender, EventArgs e)
         {
-            memberFieldBox2.passwordMask = '?';
+            memberFieldBox2.passwordMask = '*';
         }
 
         private void FrmMLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = isClosed;
+            //e.Cancel = isClosed;
         }
 
         private void button1_Click(object sender, EventArgs e)
