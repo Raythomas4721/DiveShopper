@@ -55,7 +55,7 @@ namespace divingWebProject.View
             set
             {
                 _newproduct = value;
-                fbId.filedValue = _newproduct.fId.ToString();
+                //fbId.filedValue = _newproduct.fId.ToString();
                 fbName.filedValue = _newproduct.fname;
                 fbMemo.filedValue = _newproduct.fmemo;
                 fbCost.filedValue= _newproduct.fcost.ToString();
@@ -123,6 +123,11 @@ namespace divingWebProject.View
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fbCost_Load(object sender, EventArgs e)
         {
 
         }

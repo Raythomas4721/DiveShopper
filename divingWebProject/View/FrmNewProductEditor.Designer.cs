@@ -35,12 +35,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.fbMemo = new divingWebProject.Modal.NFieldBox();
             this.fbPrice = new divingWebProject.Modal.NFieldBox();
             this.fbCost = new divingWebProject.Modal.NFieldBox();
             this.fbName = new divingWebProject.Modal.NFieldBox();
             this.fbId = new divingWebProject.Modal.NFieldBox();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Location = new System.Drawing.Point(289, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(316, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(216, 202);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -65,7 +65,7 @@
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(312, 351);
+            this.button1.Location = new System.Drawing.Point(291, 297);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 60);
             this.button1.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(441, 351);
+            this.button2.Location = new System.Drawing.Point(430, 297);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 60);
             this.button2.TabIndex = 2;
@@ -94,9 +94,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(10, 428);
+            this.label1.Location = new System.Drawing.Point(10, 375);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(555, 2);
+            this.label1.Size = new System.Drawing.Size(544, 2);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
@@ -110,61 +110,16 @@
             this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label5.Location = new System.Drawing.Point(346, 260);
+            this.label5.Location = new System.Drawing.Point(335, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(163, 24);
             this.label5.TabIndex = 9;
             this.label5.Text = "<點2下新增照片>";
             // 
-            // fbMemo
-            // 
-            this.fbMemo.filedName = "說明";
-            this.fbMemo.filedValue = "";
-            this.fbMemo.Location = new System.Drawing.Point(21, 337);
-            this.fbMemo.Name = "fbMemo";
-            this.fbMemo.Size = new System.Drawing.Size(222, 54);
-            this.fbMemo.TabIndex = 8;
-            // 
-            // fbPrice
-            // 
-            this.fbPrice.filedName = "price";
-            this.fbPrice.filedValue = "";
-            this.fbPrice.Location = new System.Drawing.Point(21, 230);
-            this.fbPrice.Name = "fbPrice";
-            this.fbPrice.Size = new System.Drawing.Size(89, 54);
-            this.fbPrice.TabIndex = 7;
-            // 
-            // fbCost
-            // 
-            this.fbCost.filedName = "cost";
-            this.fbCost.filedValue = "";
-            this.fbCost.Location = new System.Drawing.Point(162, 230);
-            this.fbCost.Name = "fbCost";
-            this.fbCost.Size = new System.Drawing.Size(81, 54);
-            this.fbCost.TabIndex = 7;
-            // 
-            // fbName
-            // 
-            this.fbName.filedName = "name";
-            this.fbName.filedValue = "";
-            this.fbName.Location = new System.Drawing.Point(21, 140);
-            this.fbName.Name = "fbName";
-            this.fbName.Size = new System.Drawing.Size(222, 69);
-            this.fbName.TabIndex = 0;
-            this.fbName.Load += new System.EventHandler(this.nFieldBox2_Load);
-            // 
-            // fbId
-            // 
-            this.fbId.filedName = "產品編號";
-            this.fbId.filedValue = "";
-            this.fbId.Location = new System.Drawing.Point(21, 63);
-            this.fbId.Name = "fbId";
-            this.fbId.Size = new System.Drawing.Size(134, 44);
-            this.fbId.TabIndex = 0;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(255, 435);
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(302, 396);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(254, 74);
             this.button3.TabIndex = 11;
@@ -172,12 +127,62 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // fbMemo
+            // 
+            this.fbMemo.filedName = "說明";
+            this.fbMemo.filedValue = "";
+            this.fbMemo.Location = new System.Drawing.Point(32, 280);
+            this.fbMemo.Name = "fbMemo";
+            this.fbMemo.Size = new System.Drawing.Size(231, 54);
+            this.fbMemo.TabIndex = 8;
+            // 
+            // fbPrice
+            // 
+            this.fbPrice.filedName = "產品價格";
+            this.fbPrice.filedValue = "";
+            this.fbPrice.Location = new System.Drawing.Point(32, 194);
+            this.fbPrice.Name = "fbPrice";
+            this.fbPrice.Size = new System.Drawing.Size(99, 54);
+            this.fbPrice.TabIndex = 7;
+            // 
+            // fbCost
+            // 
+            this.fbCost.filedName = "產品成本";
+            this.fbCost.filedValue = "";
+            this.fbCost.Location = new System.Drawing.Point(153, 194);
+            this.fbCost.Name = "fbCost";
+            this.fbCost.Size = new System.Drawing.Size(99, 54);
+            this.fbCost.TabIndex = 7;
+            this.fbCost.Load += new System.EventHandler(this.fbCost_Load);
+            // 
+            // fbName
+            // 
+            this.fbName.filedName = "產品名稱";
+            this.fbName.filedValue = "";
+            this.fbName.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fbName.Location = new System.Drawing.Point(32, 105);
+            this.fbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fbName.Name = "fbName";
+            this.fbName.Size = new System.Drawing.Size(191, 69);
+            this.fbName.TabIndex = 0;
+            this.fbName.Load += new System.EventHandler(this.nFieldBox2_Load);
+            // 
+            // fbId
+            // 
+            this.fbId.filedName = "產品編號";
+            this.fbId.filedValue = "";
+            this.fbId.Location = new System.Drawing.Point(32, 28);
+            this.fbId.Name = "fbId";
+            this.fbId.Size = new System.Drawing.Size(134, 44);
+            this.fbId.TabIndex = 0;
+            this.fbId.Visible = false;
+            // 
             // FrmNewProductEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(577, 521);
+            this.ClientSize = new System.Drawing.Size(566, 479);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.fbMemo);

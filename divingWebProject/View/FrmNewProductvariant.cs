@@ -19,7 +19,7 @@ namespace divingWebProject.View
             InitializeComponent();
         }
 
-        
+
         int _position = -1;
         private void displayNewProductvariantsBySql(string sql, bool isKeyword)
         {
@@ -56,7 +56,7 @@ namespace divingWebProject.View
             dataGridView1.Columns[3].Width = 300;
             dataGridView1.Columns[4].Width = 300;
             dataGridView1.Columns[5].Width = 300;
-          
+
 
             dataGridView1.Columns["productvariantsId"].HeaderText = "進貨ID";
             dataGridView1.Columns["productId"].HeaderText = "產品ID";
@@ -71,9 +71,9 @@ namespace divingWebProject.View
             {
                 isColorChanged = !isColorChanged;
                 r.DefaultCellStyle.Font = new Font("微軟正黑體", 14);
-                r.DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                r.DefaultCellStyle.BackColor = Color.FromArgb(160, 157, 176);
                 if (isColorChanged)
-                    r.DefaultCellStyle.BackColor = Color.CadetBlue;
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(229, 225, 252);
             }
         }
 
@@ -82,23 +82,6 @@ namespace divingWebProject.View
 
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)//刪除鈕不做
-        {
-
-            //if (_position < 0)
-            //    return;
-            //DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
-
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
-            //con.Open();
-            //SqlCommand cmd = new SqlCommand();
-            //cmd.Connection = con;
-            //cmd.CommandText = "DELETE * FROM tNproductvariants WHERE ";
-            //SqlDataReader reader = cmd.ExecuteReader();
-            //con.Close();
-
-        }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
@@ -145,7 +128,7 @@ namespace divingWebProject.View
             cmd.Parameters.AddWithValue("@K_FID", productId);
             SqlDataReader reader = cmd.ExecuteReader();
             CNProductvariant x = null;
-            int fid=0;
+            int fid = 0;
             if (reader.Read())
             {
                 x = new CNProductvariant();
@@ -167,7 +150,7 @@ namespace divingWebProject.View
 
             if (f.isOK == DialogResult.OK)
             {
-                (new CNProductManger()).update(f.newproductvariant,fid);
+                (new CNProductManger()).update(f.newproductvariant, fid);
                 displayNewProductvariantsBySql("SELECT *FROM tNproductvariants", false);
             }
         }
@@ -186,6 +169,32 @@ namespace divingWebProject.View
         {
             _position = e.RowIndex;
         }
-    }
-}
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            if (_position < 0)
+                return;
+            DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            int productvariantsId = (int)row["productvariantsId"];
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE  FROM tNproductvariants WHERE productvariantsId=@K_FproductvariantsID";
+            cmd.Parameters.AddWithValue("@K_FproductvariantsID", productvariantsId);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            displayNewProductvariantsBySql("SELECT *FROM tNproductvariants", false);
+        }
+
+        private void dataGridView1_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        {
+
+            
+            }
+        }
+    } 
+      
 

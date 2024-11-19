@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -81,6 +82,7 @@ namespace divingWebProject.View
             dataGridView1.Columns["productId"].HeaderText = "產品ID";
             dataGridView1.Columns["unitPrice"].HeaderText = "單價";
             dataGridView1.Columns["unitCost"].HeaderText = "成本";
+            dataGridView1.Columns["description"].HeaderText = "說明";
             dataGridView1.Columns["picture"].HeaderText = "產品照片";
            
 
@@ -90,9 +92,9 @@ namespace divingWebProject.View
             {
                 isColorChanged1 = !isColorChanged1;
                 r.DefaultCellStyle.Font = new Font("微軟正黑體", 14);
-                r.DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                r.DefaultCellStyle.BackColor = Color.FromArgb(116, 138, 175);
                 if (isColorChanged1)
-                    r.DefaultCellStyle.BackColor = Color.CadetBlue;
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(193, 207, 217);
             }
         }
         private void toolStripButton2_Click(object sender, EventArgs e)//新增
@@ -104,7 +106,7 @@ namespace divingWebProject.View
             {
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 DataRow row = dt.NewRow();
-                row["productId"] = f.newproduct.fId;
+                //row["productId"] = f.newproduct.fId;
                 row["productName"] = f.newproduct.fname;
                 row["unitPrice"] = f.newproduct.fprice;
                 row["unitCost"] = f.newproduct.fcost;
@@ -142,6 +144,7 @@ namespace divingWebProject.View
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow row = dt.Rows[_position];
             row.Delete();
+           _da.ContinueUpdateOnError = true;
             _da.Update(dataGridView1.DataSource as DataTable);
 
         }
@@ -197,9 +200,10 @@ namespace divingWebProject.View
 
         }
 
-        private void toolStripButton5_Click(object sender, EventArgs e)
+        private void toolStripButton5_Click(object sender, EventArgs e)//重整
         {
             flowLayoutPanel1.Controls.Clear();
+            txtKeyword.Clear();
             displayNewProductBySql("SELECT * FROM tNproduct ", false);
             
         }

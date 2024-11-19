@@ -48,31 +48,31 @@
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label4.Location = new System.Drawing.Point(28, 280);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "gender";
+            this.label4.Text = "性別分類";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(48, 171);
+            this.label3.Location = new System.Drawing.Point(28, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 20);
+            this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "size";
+            this.label3.Text = "產品尺寸";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(48, 226);
+            this.label2.Location = new System.Drawing.Point(28, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 20);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 6;
-            this.label2.Text = "color";
+            this.label2.Text = "產品顏色";
             // 
             // label1
             // 
@@ -80,9 +80,9 @@
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(12, 336);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 7;
-            this.label1.Text = "thickness";
+            this.label1.Text = "防寒衣厚度";
             // 
             // fbSize
             // 
@@ -95,7 +95,9 @@
             "無選擇",
             "S",
             "M",
-            "L"});
+            "L",
+            "XL",
+            "XXL"});
             this.fbSize.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.fbSize.Location = new System.Drawing.Point(116, 162);
             this.fbSize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -116,9 +118,10 @@
             this.fbColor.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.fbColor.Items.AddRange(new object[] {
             "無選擇",
-            "BLUE",
-            "BLACK",
-            "WHITE"});
+            "藍色",
+            "黑色",
+            "白色",
+            "紅色"});
             this.fbColor.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.fbColor.Location = new System.Drawing.Point(116, 217);
             this.fbColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -140,8 +143,10 @@
             this.fbGender.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.fbGender.Items.AddRange(new object[] {
             "無選擇",
-            "F",
-            "M"});
+            "女款半身",
+            "女款全身",
+            "男款半身",
+            "男款全身"});
             this.fbGender.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.fbGender.Location = new System.Drawing.Point(116, 271);
             this.fbGender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -163,6 +168,7 @@
             this.fbThickness.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.fbThickness.Items.AddRange(new object[] {
             "無選擇",
+            "1.5mm",
             "3mm",
             "5mm",
             "7mm"});
@@ -183,7 +189,7 @@
             // 
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.uiButton1.Location = new System.Drawing.Point(32, 393);
+            this.uiButton1.Location = new System.Drawing.Point(52, 393);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Size = new System.Drawing.Size(86, 45);
@@ -196,7 +202,7 @@
             // 
             this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.uiButton2.Location = new System.Drawing.Point(180, 393);
+            this.uiButton2.Location = new System.Drawing.Point(193, 393);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
             this.uiButton2.Size = new System.Drawing.Size(86, 45);
