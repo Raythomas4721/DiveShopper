@@ -37,7 +37,7 @@ namespace divingWebProject.View
                 row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["createdAt"] = f.usedProduct.createdAt;
-                row["productStatus"] = f.usedProduct.productStatus; //bool
+                row["productStatus"] = f.usedProduct.productStatus; 
 
                 dt.Rows.Add(row);
             }
