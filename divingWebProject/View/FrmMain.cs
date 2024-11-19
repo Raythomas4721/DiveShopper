@@ -38,7 +38,7 @@ namespace divingWebProject.View
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+            (new FrmMLogin()).ShowDialog();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -77,6 +77,22 @@ namespace divingWebProject.View
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void toolStripButton9_Click_1(object sender, EventArgs e)
+        {
+            FrmCoachList f = new FrmCoachList();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
             FrmAdminSetting f = new FrmAdminSetting();
             f.MdiParent = this;

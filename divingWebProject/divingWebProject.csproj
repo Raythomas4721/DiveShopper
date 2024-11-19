@@ -69,6 +69,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modal\CMcoaches.cs" />
+    <Compile Include="Modal\CMmember.cs" />
+    <Compile Include="Modal\CMmemberManager.cs" />
     <Compile Include="Modal\CCourse.cs" />
     <Compile Include="Modal\CNorder.cs" />
     <Compile Include="Modal\CNProduct.cs" />
@@ -113,6 +116,12 @@
     <Compile Include="View\FrmAdminSetting.Designer.cs">
       <DependentUpon>FrmAdminSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmCoachList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCoachList.Designer.cs">
+      <DependentUpon>FrmCoachList.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmCourse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,11 +140,29 @@
     <Compile Include="View\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmMcoachEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMcoachEditor.Designer.cs">
+      <DependentUpon>FrmMcoachEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FrmMember.Designer.cs">
       <DependentUpon>FrmMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMLogin.Designer.cs">
+      <DependentUpon>FrmMLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMmemberEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMmemberEditor.Designer.cs">
+      <DependentUpon>FrmMmemberEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmNewOder.cs">
       <SubType>Form</SubType>
@@ -179,6 +206,12 @@
     <Compile Include="View\FrmUsedProduct.Designer.cs">
       <DependentUpon>FrmUsedProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\MemberFieldBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\MemberFieldBox.Designer.cs">
+      <DependentUpon>MemberFieldBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmUsedProductEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +248,9 @@
     <EmbeddedResource Include="View\FrmAdminSetting.resx">
       <DependentUpon>FrmAdminSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCoachList.resx">
+      <DependentUpon>FrmCoachList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCourse.resx">
       <DependentUpon>FrmCourse.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,8 +260,17 @@
     <EmbeddedResource Include="View\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMcoachEditor.resx">
+      <DependentUpon>FrmMcoachEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMember.resx">
       <DependentUpon>FrmMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMLogin.resx">
+      <DependentUpon>FrmMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMmemberEditor.resx">
+      <DependentUpon>FrmMmemberEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmNewOder.resx">
       <DependentUpon>FrmNewOder.cs</DependentUpon>
@@ -247,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmUsedProduct.resx">
       <DependentUpon>FrmUsedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\MemberFieldBox.resx">
+      <DependentUpon>MemberFieldBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <EmbeddedResource Include="View\FrmUsedProductEditor.resx">
