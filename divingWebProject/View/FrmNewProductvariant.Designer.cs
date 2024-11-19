@@ -117,6 +117,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -152,6 +153,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmNewProductvariant";
             this.Text = "FrmNewProductvariant";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmNewProductvariant_Load_1);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmNewProductvariant_Paint_1);
             this.toolStrip1.ResumeLayout(false);
