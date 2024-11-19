@@ -31,6 +31,13 @@ namespace divingWebProject.View
         {
             displayCoursesBySql("SELECT * FROM tCcourses",false);
 
+            label1.BackColor = System.Drawing.Color.FromArgb(108, 122, 137 ); 
+            toolStrip1.BackColor = System.Drawing.Color.FromArgb(163, 198, 196);
+            dataGridView1.Columns[0].HeaderCell.Style.BackColor = SystemColors.Control; // 默認背景色
+            dataGridView1.RowsDefaultCellStyle.BackColor = Color.FromArgb(224, 231, 233); //偶數行
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255); //奇數行
+
+
         }
 
         private void displayCoursesBySql(string sql,bool isKeyword)
@@ -79,8 +86,6 @@ namespace divingWebProject.View
         private void FrmCourse_FormClosed(object sender, FormClosedEventArgs e)
         { // 表單生命週期 -> FormClosed表示視窗關閉之後
             _da.Update(dataGridView1.DataSource as DataTable);
-
-
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -146,7 +151,7 @@ namespace divingWebProject.View
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             //string sql = "SELECT * FROM vw_CourseDetails WHERE ";
             //sql += "cc.categoryName LIKE @K_KEYWORD";
@@ -289,5 +294,7 @@ namespace divingWebProject.View
             toolStripButton4.Enabled = true;
 
         }
+
+        
     }
 }

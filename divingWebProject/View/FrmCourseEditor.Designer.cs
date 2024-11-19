@@ -56,6 +56,7 @@
             this.cbbCategoryId.Name = "cbbCategoryId";
             this.cbbCategoryId.Size = new System.Drawing.Size(345, 30);
             this.cbbCategoryId.TabIndex = 2;
+            this.cbbCategoryId.SelectedIndexChanged += new System.EventHandler(this.cbbCategoryId_SelectedIndexChanged);
             // 
             // label1
             // 

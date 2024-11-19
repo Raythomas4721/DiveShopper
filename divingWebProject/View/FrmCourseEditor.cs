@@ -153,5 +153,10 @@ namespace divingWebProject.View
             reader.Close();
             imgStream.Close();
         }
+
+        private void cbbCategoryId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
