@@ -184,5 +184,16 @@ namespace divingWebProject.View
 
             displayProductBySql(sql, true);
         }
+
+        private void createphoto_Click(object sender, EventArgs e)
+        {
+            FrmUsedProductImages f=new FrmUsedProductImages();
+            f.ShowDialog();
+        }
+
+        private void Save_Click(object sender, EventArgs e) //重新整理
+        {
+            _da.Update(dataGridView1.DataSource as DataTable);
+        }
     }
 }

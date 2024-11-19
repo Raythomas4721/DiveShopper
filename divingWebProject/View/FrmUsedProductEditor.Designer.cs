@@ -30,6 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.fproductStatus = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.fproductStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -112,6 +112,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(741, 550);
             this.panel1.TabIndex = 0;
+            // 
+            // fproductStatus
+            // 
+            this.fproductStatus.AutoSize = true;
+            this.fproductStatus.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold);
+            this.fproductStatus.Location = new System.Drawing.Point(138, 494);
+            this.fproductStatus.Name = "fproductStatus";
+            this.fproductStatus.Size = new System.Drawing.Size(115, 30);
+            this.fproductStatus.TabIndex = 30;
+            this.fproductStatus.Text = "商品上架";
+            this.fproductStatus.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -374,17 +385,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // fproductStatus
-            // 
-            this.fproductStatus.AutoSize = true;
-            this.fproductStatus.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold);
-            this.fproductStatus.Location = new System.Drawing.Point(138, 494);
-            this.fproductStatus.Name = "fproductStatus";
-            this.fproductStatus.Size = new System.Drawing.Size(115, 30);
-            this.fproductStatus.TabIndex = 30;
-            this.fproductStatus.Text = "商品上架";
-            this.fproductStatus.UseVisualStyleBackColor = true;
             // 
             // FrmUsedProductEditor
             // 
