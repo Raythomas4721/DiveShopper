@@ -15,7 +15,8 @@ namespace divingWebProject.View
     public partial class FrmMLogin : Form
     {
         private bool isClosed = true;
-        public string CurrentUserName { get; private set; }
+        public string CurrentUserName { get;  set; }
+        public string CurrentUserRole { get;  set; }
         public FrmMLogin()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace divingWebProject.View
             {
                 isClosed = false;
                 CurrentUserName = reader["userName"].ToString();
+                CurrentUserRole = reader["roleName"].ToString();
                 isClosed = false;
                 Close();
             }
