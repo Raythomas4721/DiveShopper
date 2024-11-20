@@ -40,6 +40,7 @@ namespace divingWebProject.View
             set
             {
                 _member = value;
+                string memberId = _member.memberId.ToString();
                 memberFieldBox1.filedValue = _member.memberName;
                 memberFieldBox2.filedValue = _member.memberGender;
                 memberFieldBox3.filedValue = _member.memberEmail;
@@ -116,9 +117,9 @@ namespace divingWebProject.View
                 MessageBox.Show("電子郵件不可為空");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(memberFieldBox6.filedValue) || (memberFieldBox6.filedValue != memberFieldBox7.filedValue))
+            if (string.IsNullOrWhiteSpace(memberFieldBox6.filedValue))
             {
-                MessageBox.Show("密碼欄位有誤，請輸入相同的值");
+                MessageBox.Show("密碼欄位不可為空");
                 return;
             }
             this.isOK = DialogResult.OK;

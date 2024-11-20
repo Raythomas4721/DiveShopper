@@ -41,7 +41,7 @@ namespace divingWebProject.View
         {
             FrmMLogin f = new FrmMLogin();
             f.ShowDialog();
-            // 獲取登入的使用者名稱
+
             string userName = "登出" + f.CurrentUserName ;
             if (userName == null)
                 userName = "登出使用者";
@@ -110,7 +110,14 @@ namespace divingWebProject.View
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
             FrmMLogin f = new FrmMLogin();
+            MessageBox.Show("您已登出");
+            toolStripButton10.Text = "使用者您好";
             f.ShowDialog();
+
+            string userName = "登出" + f.CurrentUserName;
+            if (userName == null)
+                userName = "登出使用者";
+            toolStripButton10.Text = userName;
         }
     }
 }

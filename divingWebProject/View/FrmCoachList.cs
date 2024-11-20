@@ -53,10 +53,10 @@ namespace divingWebProject.View
         }
         private void resetGridStyle()
         {
-            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[0].Width = 120;
             dataGridView1.Columns[1].Width = 150;
             dataGridView1.Columns[2].Width = 100;
-            dataGridView1.Columns[3].Width = 300;
+            dataGridView1.Columns[3].Width = 400;
             bool isColorChanged = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
@@ -154,6 +154,41 @@ namespace divingWebProject.View
             string sql = "select * from tMcoaches where ";
             sql += " coachName like @K_keyword ";
             displayCoachBySql(sql, true);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            displayCoachBySql("SELECT * FROM tMcoaches", false);
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (_position < 0)
+                return;
+            DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            FrmMcoachEditor f = new FrmMcoachEditor();
+            CMcoaches x = new CMcoaches();
+            x.coachName = (string)row["coachName"];
+            x.gender = (string)row["gender"];
+            x.coachPhone = (string)row["coachPhone"];
+            x.experience = (string)row["experience"];
+            x.divingStyleId = (int)row["divingStyleId"];
+            if (row["Photo"] != DBNull.Value)
+                x.photo = (byte[])row["photo"];
+            f.coach = x;
+            f.ShowDialog();
+            if (x == null) { return; }
+            if (f.isOK == DialogResult.OK)
+            {
+                row["coachName"] = f.coach.coachName;
+                row["gender"] = f.coach.gender;
+                row["coachPhone"] = f.coach.coachPhone;
+                row["experience"] = f.coach.experience;
+                row["divingStyleId"] = f.coach.divingStyleId;
+                row["photo"] = f.coach.photo;
+
+                _da.Update((DataTable)dataGridView1.DataSource);
+            }
         }
     }
 }

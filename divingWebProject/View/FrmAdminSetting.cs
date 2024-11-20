@@ -48,14 +48,15 @@ namespace divingWebProject.View
             _da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns["lastLogin"].HeaderText = "updateAt";
             dataGridView1.Columns["passwordHash"].Visible = false;
             con.Close();
         }
         private void resetGridStyle()
         {
-            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[0].Width = 120;
             dataGridView1.Columns[1].Width = 150;
-            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[2].Width = 150;
             dataGridView1.Columns[3].Width = 150;
             dataGridView1.Columns[4].Width = 250;
             bool isColorChanged = false;
@@ -149,6 +150,38 @@ namespace divingWebProject.View
             sql += " userName like @K_keyword ";
             sql += " or email like @K_keyword";
             displayAdminBySql(sql, true);
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (_position < 0)
+                return;
+            DataRow row = (dataGridView1.DataSource as DataTable).Rows[_position];
+            FrmMadminEditor f = new FrmMadminEditor();
+            CMadmin x = new CMadmin();
+            x.userName = (string)row["userName"];
+            x.email = (string)row["email"];
+            x.passwordHash = (string)row["passwordHash"];
+            x.lastLogin = (DateTime)row["lastLogin"];
+            x.roleName = (string)row["roleName"];
+            f.admin = x;
+            f.ShowDialog();
+            if (x == null) { return; }
+            if (f.isOK == DialogResult.OK)
+            {
+                row["userName"] = f.admin.userName;
+                row["email"] = f.admin.email;
+                row["passwordHash"] = f.admin.passwordHash;
+                row["lastLogin"] = DateTime.Now;
+                row["roleName"] = f.admin.roleName;
+
+                _da.Update((DataTable)dataGridView1.DataSource);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            displayAdminBySql("SELECT * FROM tMadmin", false);
         }
     }
 }

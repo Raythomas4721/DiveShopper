@@ -20,6 +20,7 @@ namespace divingWebProject.View
         public FrmMadminEditor()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
         public CMadmin admin
         {
@@ -34,7 +35,7 @@ namespace divingWebProject.View
                 _admin.email = FieldBox2.filedValue;
                 _admin.passwordHash = FieldBox3.filedValue;
                 if (comboBox1.SelectedItem == null)
-                    MessageBox.Show("請選擇管理角色");
+                    comboBox1.SelectedIndex = 0;
                 _admin.roleName = comboBox1.SelectedItem.ToString(); 
                 _admin.lastLogin = DateTime.Today;
 
