@@ -57,7 +57,7 @@ namespace divingWebProject.View
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            FrmSite f = new FrmSite();
+            FrmSite2 f = new FrmSite2();
             f.MdiParent = this;
             f.Show();
         }

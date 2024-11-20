@@ -76,6 +76,8 @@
     <Compile Include="Modal\CNorder.cs" />
     <Compile Include="Modal\CNProduct.cs" />
     <Compile Include="Modal\CNProductvariant.cs" />
+    <Compile Include="Modal\CSite.cs" />
+    <Compile Include="Modal\CSiteMangers.cs" />
     <Compile Include="View\FrmNewProductvariant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +89,18 @@
     </Compile>
     <Compile Include="View\FrmProductvariantEditor.Designer.cs">
       <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmSite2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmSite2.Designer.cs">
+      <DependentUpon>FrmSite2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmSiteEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmSiteEditor.Designer.cs">
+      <DependentUpon>FrmSiteEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NFieldBox.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +240,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmProductvariantEditor.resx">
       <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmSite2.resx">
+      <DependentUpon>FrmSite2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmSiteEditor.resx">
+      <DependentUpon>FrmSiteEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NFieldBox.resx">
       <DependentUpon>NFieldBox.cs</DependentUpon>
