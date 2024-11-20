@@ -15,6 +15,7 @@ namespace divingWebProject.View
     public partial class FrmMLogin : Form
     {
         private bool isClosed = true;
+        public string CurrentUserName { get; private set; }
         public FrmMLogin()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace divingWebProject.View
         private void login()
         {
             string sql = "select * from tMadmin where ";
-            sql += " userName = @K_email ";
+            sql += " userName = @K_userName ";
             sql += " and passwordHash = @K_passwordHash";
 
             SqlConnection con = new SqlConnection();
@@ -37,11 +38,14 @@ namespace divingWebProject.View
             con.Open();
 
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.Add(new SqlParameter("K_email", (object)FieldBox1.filedValue));
+            cmd.Parameters.Add(new SqlParameter("K_userName", (object)FieldBox1.filedValue));
             cmd.Parameters.Add(new SqlParameter("K_passwordHash", (object)FieldBox2.filedValue));
             SqlDataReader reader = cmd.ExecuteReader();
+
             if (reader.Read())
             {
+                isClosed = false;
+                CurrentUserName = reader["userName"].ToString();
                 isClosed = false;
                 Close();
             }
@@ -88,5 +92,12 @@ namespace divingWebProject.View
                 login();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmForgetPassword f = new FrmForgetPassword();
+            f.ShowDialog();
+        }
+        
     }
 }

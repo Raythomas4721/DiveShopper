@@ -14,5 +14,6 @@ namespace divingWebProject.Modal
         public string coachPhone { get; set; }
         public string experience { get; set; }
         public byte[] photo { get; set; }
+        public int divingStyleId {get; set;}
     }
 }

@@ -49,6 +49,11 @@
             this.memberFieldBox8 = new divingWebProject.View.MemberFieldBox();
             this.memberFieldBox7 = new divingWebProject.View.MemberFieldBox();
             this.memberFieldBox6 = new divingWebProject.View.MemberFieldBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,7 +69,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -75,15 +79,19 @@
             this.splitContainer1.Panel1.Controls.Add(this.memberFieldBox4);
             this.splitContainer1.Panel1.Controls.Add(this.memberFieldBox5);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.memberFieldBox3);
             this.splitContainer1.Panel1.Controls.Add(this.memberFieldBox2);
             this.splitContainer1.Panel1.Controls.Add(this.memberFieldBox1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label9);
+            this.splitContainer1.Panel2.Controls.Add(this.comboBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
+            this.splitContainer1.Panel2.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
@@ -91,44 +99,41 @@
             this.splitContainer1.Panel2.Controls.Add(this.memberFieldBox8);
             this.splitContainer1.Panel2.Controls.Add(this.memberFieldBox7);
             this.splitContainer1.Panel2.Controls.Add(this.memberFieldBox6);
-            this.splitContainer1.Size = new System.Drawing.Size(1152, 744);
-            this.splitContainer1.SplitterDistance = 557;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
+            this.splitContainer1.Size = new System.Drawing.Size(864, 626);
+            this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(72, 428);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(54, 342);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 25);
+            this.label4.Size = new System.Drawing.Size(17, 21);
             this.label4.TabIndex = 13;
             this.label4.Text = "*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(72, 342);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(54, 274);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 25);
+            this.label3.Size = new System.Drawing.Size(17, 21);
             this.label3.TabIndex = 12;
             this.label3.Text = "*";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(72, 258);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(54, 206);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 25);
+            this.label2.Size = new System.Drawing.Size(17, 21);
             this.label2.TabIndex = 11;
             this.label2.Text = "*";
             // 
@@ -136,10 +141,11 @@
             // 
             this.memberFieldBox4.filedName = "電話";
             this.memberFieldBox4.filedValue = "";
-            this.memberFieldBox4.Location = new System.Drawing.Point(91, 512);
-            this.memberFieldBox4.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox4.Location = new System.Drawing.Point(68, 410);
+            this.memberFieldBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox4.Name = "memberFieldBox4";
-            this.memberFieldBox4.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox4.passwordMask = '\0';
+            this.memberFieldBox4.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox4.TabIndex = 4;
             this.memberFieldBox4.Load += new System.EventHandler(this.memberFieldBox4_Load);
             // 
@@ -147,20 +153,20 @@
             // 
             this.memberFieldBox5.filedName = "地址";
             this.memberFieldBox5.filedValue = "";
-            this.memberFieldBox5.Location = new System.Drawing.Point(91, 598);
-            this.memberFieldBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox5.Location = new System.Drawing.Point(68, 478);
+            this.memberFieldBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox5.Name = "memberFieldBox5";
-            this.memberFieldBox5.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox5.passwordMask = '\0';
+            this.memberFieldBox5.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox5.TabIndex = 5;
             this.memberFieldBox5.Load += new System.EventHandler(this.memberFieldBox5_Load);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBox1.Location = new System.Drawing.Point(113, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(85, 40);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(316, 182);
+            this.pictureBox1.Size = new System.Drawing.Size(237, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -171,10 +177,11 @@
             // 
             this.memberFieldBox3.filedName = "電子郵件";
             this.memberFieldBox3.filedValue = "";
-            this.memberFieldBox3.Location = new System.Drawing.Point(91, 428);
-            this.memberFieldBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox3.Location = new System.Drawing.Point(68, 342);
+            this.memberFieldBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox3.Name = "memberFieldBox3";
-            this.memberFieldBox3.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox3.passwordMask = '\0';
+            this.memberFieldBox3.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox3.TabIndex = 3;
             this.memberFieldBox3.Load += new System.EventHandler(this.memberFieldBox3_Load);
             // 
@@ -182,10 +189,11 @@
             // 
             this.memberFieldBox2.filedName = "性別";
             this.memberFieldBox2.filedValue = "";
-            this.memberFieldBox2.Location = new System.Drawing.Point(91, 342);
-            this.memberFieldBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox2.Location = new System.Drawing.Point(68, 274);
+            this.memberFieldBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox2.Name = "memberFieldBox2";
-            this.memberFieldBox2.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox2.passwordMask = '\0';
+            this.memberFieldBox2.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox2.TabIndex = 2;
             this.memberFieldBox2.Load += new System.EventHandler(this.memberFieldBox2_Load);
             // 
@@ -193,20 +201,21 @@
             // 
             this.memberFieldBox1.filedName = "姓名";
             this.memberFieldBox1.filedValue = "";
-            this.memberFieldBox1.Location = new System.Drawing.Point(91, 258);
-            this.memberFieldBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox1.Location = new System.Drawing.Point(68, 206);
+            this.memberFieldBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox1.Name = "memberFieldBox1";
-            this.memberFieldBox1.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox1.passwordMask = '\0';
+            this.memberFieldBox1.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox1.TabIndex = 1;
             this.memberFieldBox1.Load += new System.EventHandler(this.memberFieldBox1_Load);
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(256, 649);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button2.Location = new System.Drawing.Point(192, 561);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 55);
+            this.button2.Size = new System.Drawing.Size(83, 44);
             this.button2.TabIndex = 19;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
@@ -214,11 +223,11 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(411, 649);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(308, 561);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 55);
+            this.button1.Size = new System.Drawing.Size(83, 44);
             this.button1.TabIndex = 18;
             this.button1.Text = "送出";
             this.button1.UseVisualStyleBackColor = true;
@@ -226,100 +235,169 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(381, 598);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(244, 574);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.Size = new System.Drawing.Size(105, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "*  為必填欄位";
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(115, 412);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(86, 319);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 24);
+            this.label7.Size = new System.Drawing.Size(189, 19);
             this.label7.TabIndex = 16;
             this.label7.Text = "參加課程需填寫緊急聯絡人";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(101, 141);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(76, 113);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 25);
+            this.label6.Size = new System.Drawing.Size(17, 21);
             this.label6.TabIndex = 15;
             this.label6.Text = "*";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(101, 56);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(76, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 25);
+            this.label5.Size = new System.Drawing.Size(17, 21);
             this.label5.TabIndex = 14;
             this.label5.Text = "*";
             // 
             // memberFieldBox9
             // 
+            this.memberFieldBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.memberFieldBox9.filedName = "緊急聯絡人電話";
             this.memberFieldBox9.filedValue = "";
-            this.memberFieldBox9.Location = new System.Drawing.Point(120, 329);
-            this.memberFieldBox9.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox9.Location = new System.Drawing.Point(90, 253);
+            this.memberFieldBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox9.Name = "memberFieldBox9";
-            this.memberFieldBox9.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox9.passwordMask = '\0';
+            this.memberFieldBox9.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox9.TabIndex = 10;
             // 
             // memberFieldBox8
             // 
+            this.memberFieldBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.memberFieldBox8.filedName = "緊急聯絡人";
             this.memberFieldBox8.filedValue = "";
-            this.memberFieldBox8.Location = new System.Drawing.Point(120, 244);
-            this.memberFieldBox8.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox8.Location = new System.Drawing.Point(90, 183);
+            this.memberFieldBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox8.Name = "memberFieldBox8";
-            this.memberFieldBox8.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox8.passwordMask = '\0';
+            this.memberFieldBox8.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox8.TabIndex = 9;
             // 
             // memberFieldBox7
             // 
+            this.memberFieldBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.memberFieldBox7.filedName = "確認密碼";
             this.memberFieldBox7.filedValue = "";
-            this.memberFieldBox7.Location = new System.Drawing.Point(120, 141);
-            this.memberFieldBox7.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox7.Location = new System.Drawing.Point(90, 113);
+            this.memberFieldBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox7.Name = "memberFieldBox7";
-            this.memberFieldBox7.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox7.passwordMask = '\0';
+            this.memberFieldBox7.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox7.TabIndex = 7;
             // 
             // memberFieldBox6
             // 
+            this.memberFieldBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.memberFieldBox6.filedName = "密碼設定";
             this.memberFieldBox6.filedValue = "";
-            this.memberFieldBox6.Location = new System.Drawing.Point(120, 56);
-            this.memberFieldBox6.Margin = new System.Windows.Forms.Padding(5);
+            this.memberFieldBox6.Location = new System.Drawing.Point(90, 45);
+            this.memberFieldBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.memberFieldBox6.Name = "memberFieldBox6";
-            this.memberFieldBox6.Size = new System.Drawing.Size(375, 78);
+            this.memberFieldBox6.passwordMask = '\0';
+            this.memberFieldBox6.Size = new System.Drawing.Size(281, 62);
             this.memberFieldBox6.TabIndex = 6;
             this.memberFieldBox6.Load += new System.EventHandler(this.memberFieldBox6_Load);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label8.Location = new System.Drawing.Point(95, 392);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 24);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "潛水等級";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox1.Items.AddRange(new object[] {
+            "一般",
+            "文案管理員",
+            "會員管理員",
+            "系統管理員",
+            "超級管理員"});
+            this.comboBox1.Location = new System.Drawing.Point(90, 418);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(281, 31);
+            this.comboBox1.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.Location = new System.Drawing.Point(95, 461);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 24);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "潛水種類";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox2.Items.AddRange(new object[] {
+            "一般",
+            "文案管理員",
+            "會員管理員",
+            "系統管理員",
+            "超級管理員"});
+            this.comboBox2.Location = new System.Drawing.Point(90, 487);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(281, 31);
+            this.comboBox2.TabIndex = 22;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(68, 373);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(323, 167);
+            this.panel1.TabIndex = 24;
+            // 
             // FrmMmemberEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 744);
+            this.ClientSize = new System.Drawing.Size(864, 626);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMmemberEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMmemberEditor";
@@ -358,5 +436,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

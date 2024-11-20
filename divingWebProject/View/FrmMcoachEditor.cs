@@ -21,9 +21,30 @@ namespace divingWebProject.View
         public FrmMcoachEditor()
         {
             InitializeComponent();
+            LoadDivingStyles();
+        }
+        private void LoadDivingStyles()
+        {
+            
+            string sql = "SELECT divingStyleId, divingStyle FROM tMdivingStyle";
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
+            SqlDataAdapter da = new SqlDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            da.Fill(dt);
+            con.Close();
+
+            // Binding ComboBox
+            comboBoxDivingStyle.DataSource = dt;
+            comboBoxDivingStyle.ValueMember = "divingStyleId";  
+            comboBoxDivingStyle.DisplayMember = "divingStyle";  
         }
         public CMcoaches coach
         {
+
             get
             {
                 if (_coach == null)
@@ -37,6 +58,13 @@ namespace divingWebProject.View
                 _coach.experience = richTextBox1.Text;
 
 
+                // 獲取選中的值
+                if (comboBoxDivingStyle.SelectedValue != null)
+                {
+                    _coach.divingStyleId = (int)comboBoxDivingStyle.SelectedValue;
+                }
+
+
                 return _coach;
             }
             set
@@ -46,6 +74,15 @@ namespace divingWebProject.View
                 coachFieldBox2.filedValue = _coach.gender;
                 coachFieldBox3.filedValue = _coach.coachPhone;
                 richTextBox1.Text = _coach.experience;
+
+                //comboBoxDivingStyle.SelectedValue = _coach.divingStyleId;
+
+                if (_coach.divingStyleId > 0)
+                {
+                    comboBoxDivingStyle.SelectedValue = _coach.divingStyleId;
+                }
+
+
 
                 if (_coach.photo != null)
                 {
@@ -68,7 +105,7 @@ namespace divingWebProject.View
                 MessageBox.Show("教練性別請輸入男或女");
                 return;
             }
-            isOK = DialogResult.OK; 
+            isOK = DialogResult.OK;
             Close();
         }
 

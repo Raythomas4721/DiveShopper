@@ -25,9 +25,9 @@ namespace divingWebProject.View
         private void FrmCoachList_Load(object sender, EventArgs e)
         {
             dataGridView1.RowTemplate.Height = 50;
-            displayMemberBySql("SELECT * FROM tMcoaches", false);
+            displayCoachBySql("SELECT * FROM tMcoaches", false);
         }
-        private void displayMemberBySql(string sql, bool isKeyWord)
+        private void displayCoachBySql(string sql, bool isKeyWord)
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
@@ -87,6 +87,7 @@ namespace divingWebProject.View
                 row["gender"] = f.coach.gender;
                 row["coachPhone"] = f.coach.coachPhone;
                 row["experience"] = f.coach.experience;
+                row["divingStyleId"] = f.coach.divingStyleId;
 
                 dt.Rows.Add(row);
                 _da.Update(dt);
@@ -129,6 +130,7 @@ namespace divingWebProject.View
             x.gender = (string)row["gender"];
             x.coachPhone = (string)row["coachPhone"];
             x.experience = (string)row["experience"];
+            x.divingStyleId = (int)row["divingStyleId"];
             if (row["Photo"] != DBNull.Value)
                 x.photo = (byte[])row["photo"];
             f.coach = x;
@@ -140,6 +142,7 @@ namespace divingWebProject.View
                 row["gender"] = f.coach.gender;
                 row["coachPhone"] = f.coach.coachPhone;
                 row["experience"] = f.coach.experience;
+                row["divingStyleId"] = f.coach.divingStyleId;
                 row["photo"] = f.coach.photo;
 
                 _da.Update((DataTable)dataGridView1.DataSource);
@@ -148,7 +151,9 @@ namespace divingWebProject.View
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-
+            string sql = "select * from tMcoaches where ";
+            sql += " coachName like @K_keyword ";
+            displayCoachBySql(sql, true);
         }
     }
 }

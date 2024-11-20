@@ -142,5 +142,13 @@ namespace divingWebProject.View
         {
             _da.Update(dataGridView1.DataSource as DataTable);
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from tMadmin where ";
+            sql += " userName like @K_keyword ";
+            sql += " or email like @K_keyword";
+            displayAdminBySql(sql, true);
+        }
     }
 }

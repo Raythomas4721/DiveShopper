@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,6 @@ namespace divingWebProject.View
         {
             InitializeComponent();
         }
-
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
@@ -38,7 +39,14 @@ namespace divingWebProject.View
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            (new FrmMLogin()).ShowDialog();
+            FrmMLogin f = new FrmMLogin();
+            f.ShowDialog();
+            // 獲取登入的使用者名稱
+            string userName = "登出" + f.CurrentUserName ;
+            if (userName == null)
+                userName = "登出使用者";
+            toolStripButton10.Text = userName; 
+
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -97,6 +105,12 @@ namespace divingWebProject.View
             FrmAdminSetting f = new FrmAdminSetting();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            FrmMLogin f = new FrmMLogin();
+            f.ShowDialog();
         }
     }
 }

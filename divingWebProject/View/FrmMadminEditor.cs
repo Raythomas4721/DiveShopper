@@ -33,8 +33,9 @@ namespace divingWebProject.View
                 _admin.userName = FieldBox1.filedValue;
                 _admin.email = FieldBox2.filedValue;
                 _admin.passwordHash = FieldBox3.filedValue;
-                string v = comboBox1.SelectedItem.ToString();
-                _admin.roleName = v;
+                if (comboBox1.SelectedItem == null)
+                    MessageBox.Show("請選擇管理角色");
+                _admin.roleName = comboBox1.SelectedItem.ToString(); 
                 _admin.lastLogin = DateTime.Today;
 
 
