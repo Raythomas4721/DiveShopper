@@ -62,8 +62,8 @@ namespace divingWebProject.View
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandText = sql;
-            cmd.Parameters.Add(new SqlParameter("@K_FproductId", (object)p.fId));
-            cmd.Parameters.Add(new SqlParameter("@K_FCOLOR", (object)p.fcolor));
+                cmd.Parameters.Add(new SqlParameter("@K_FproductId", (object)p.fId));
+               cmd.Parameters.Add(new SqlParameter("@K_FCOLOR", (object)p.fcolor));
                 cmd.Parameters.Add(new SqlParameter("@K_FGENDER", (object)p.fgender));
                 cmd.Parameters.Add(new SqlParameter("@K_FSIZE", (object)p.fsize));
                 cmd.Parameters.Add(new SqlParameter("@K_FTHICKNESS", (object)p.fthickness));

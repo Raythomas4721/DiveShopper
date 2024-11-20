@@ -170,7 +170,7 @@ namespace divingWebProject.View
             _position = e.RowIndex;
         }
 
-        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        private void toolStripButton4_Click_1(object sender, EventArgs e)//刪除
         {
             if (_position < 0)
                 return;
@@ -189,11 +189,37 @@ namespace divingWebProject.View
             displayNewProductvariantsBySql("SELECT *FROM tNproductvariants", false);
         }
 
-        private void dataGridView1_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        private void dataGridView1_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)//加欄位
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // 取得欄位名稱
+                string columnName = dataGridView1.Columns[e.ColumnIndex].Name;
 
-            
+                // 根據欄位名稱或其他條件設置 ToolTip
+                switch (columnName)
+                {
+                   
+                    case "sizeId":
+                        e.ToolTipText = "\n1=S\n2=M\n3=L\n4=XL\n0=無";
+                        break;
+                    case "colorId":
+                        e.ToolTipText = "\n1=藍色\n2=黑色\n3=白色\n4=紅色\n0=無";
+                        break;
+                    case "thicknessId":
+                        e.ToolTipText = "\n1=1.5mm\n2=3mm\n3=5mm\n4=7mm\n0=無";
+                        break;
+                    case "genderId":
+                        e.ToolTipText = "\n1=女款半身\n2=女款全身\n3=男款半身\n4=男款全身\n0=無";
+                        break;
+                    
+                    default:
+                        e.ToolTipText = "無標籤資料";
+                        break;
+                }
             }
+
+        }
         }
     } 
       

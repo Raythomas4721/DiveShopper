@@ -134,6 +134,7 @@
             this.fbColor.Text = "uiComboBox1";
             this.fbColor.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.fbColor.Watermark = "";
+            this.fbColor.Validated += new System.EventHandler(this.fbColor_Validated);
             // 
             // fbGender
             // 
