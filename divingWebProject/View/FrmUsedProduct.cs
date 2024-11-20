@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,7 +96,7 @@ namespace divingWebProject.View
             x.sellerId = Convert.ToInt32(row["sellerId"]);  // 假設 sellerId 是 int 類型
             x.updatedAt = DateTime.Now.ToString();
             x.productStatus = row["productStatus"] != DBNull.Value ? Convert.ToBoolean(row["productStatus"]) : false;
-
+            
             int categoryId;
             if (int.TryParse(row["categoryId"].ToString(), out categoryId))
             {
@@ -106,6 +107,7 @@ namespace divingWebProject.View
                 // 處理轉換失敗的情況
                 x.categoryId = 0; // 或者其他預設值
             }
+            
             f.usedProduct = x;
             f.ShowDialog();
 
@@ -119,7 +121,7 @@ namespace divingWebProject.View
                 row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["updatedAt"] = f.usedProduct.updatedAt;
-                row["productStatus"]= f.usedProduct.productStatus; //bool
+                row["productStatus"]= f.usedProduct.productStatus;
             }
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
