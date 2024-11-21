@@ -67,9 +67,10 @@ namespace divingWebProject.View
             cbbLevelId.Items.Add("2"); //中級intermediate
             cbbLevelId.Items.Add("3"); //高級advanced
 
-            cbbCoachId.Items.Add("1"); //Ray
-            cbbCoachId.Items.Add("2"); //Renee
-            cbbCoachId.Items.Add("3"); //Chloe
+            cbbCoachId.Items.Add("8"); //阿花
+            cbbCoachId.Items.Add("9"); //李福禧
+            cbbCoachId.Items.Add("10"); //花王
+            cbbCoachId.Items.Add("11"); //波賽隆
         }
 
         

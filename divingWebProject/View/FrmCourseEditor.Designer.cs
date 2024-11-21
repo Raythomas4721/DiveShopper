@@ -208,9 +208,9 @@
             this.label8.Location = new System.Drawing.Point(149, 229);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(198, 22);
+            this.label8.Size = new System.Drawing.Size(284, 22);
             this.label8.TabIndex = 27;
-            this.label8.Text = "1.Ray  2.Renee  3.Chloe ";
+            this.label8.Text = "8.阿花  9.李福禧  10.花王  11.波賽隆 ";
             // 
             // label9
             // 
