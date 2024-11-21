@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace divingWebProject.View
                 row["productPrice"] = f.usedProduct.productPrice;
                 row["productConditionId"] = f.usedProduct.productConditionId;
                 row["productDescription"] = f.usedProduct.productDescription;
-                row["productId"] = f.usedProduct.productId;
+                //row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["createdAt"] = f.usedProduct.createdAt;
                 row["productStatus"] = f.usedProduct.productStatus; 
@@ -91,11 +92,11 @@ namespace divingWebProject.View
             x.productPrice = Convert.ToDecimal(row["productPrice"]);  // 假設 productPrice 是 decimal 類型
             x.productConditionId = Convert.ToInt32(row["productConditionId"]);  // 假設 productConditionId 是 int 類型
             x.productDescription = row["productDescription"].ToString();  // 假設 productDescription 是 string 類型
-            x.productId = Convert.ToInt32(row["productId"]);  // 假設 productId 是 int 類型
+            //x.productId = Convert.ToInt32(row["productId"]);  // 假設 productId 是 int 類型
             x.sellerId = Convert.ToInt32(row["sellerId"]);  // 假設 sellerId 是 int 類型
             x.updatedAt = DateTime.Now.ToString();
             x.productStatus = row["productStatus"] != DBNull.Value ? Convert.ToBoolean(row["productStatus"]) : false;
-
+            
             int categoryId;
             if (int.TryParse(row["categoryId"].ToString(), out categoryId))
             {
@@ -106,6 +107,7 @@ namespace divingWebProject.View
                 // 處理轉換失敗的情況
                 x.categoryId = 0; // 或者其他預設值
             }
+            
             f.usedProduct = x;
             f.ShowDialog();
 
@@ -116,10 +118,10 @@ namespace divingWebProject.View
                 row["productPrice"] = f.usedProduct.productPrice;
                 row["productConditionId"] = f.usedProduct.productConditionId;
                 row["productDescription"] = f.usedProduct.productDescription;
-                row["productId"] = f.usedProduct.productId;
+                //row["productId"] = f.usedProduct.productId;
                 row["sellerId"] = f.usedProduct.sellerId;
                 row["updatedAt"] = f.usedProduct.updatedAt;
-                row["productStatus"]= f.usedProduct.productStatus; //bool
+                row["productStatus"]= f.usedProduct.productStatus;
             }
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -132,6 +134,20 @@ namespace divingWebProject.View
                 return;
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow row = dt.Rows[_position];
+
+            int productId = (int)row["productId"]; // 假設 "productId" 是 DataTable 中的一個欄位
+
+            // 刪除 tUproductImages 中與該 productId 相關的資料
+            string deleteImagesQuery = "DELETE FROM tUproductImages WHERE productId = @productId";
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=SSPI;";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(deleteImagesQuery, con);
+            
+            cmd.Parameters.AddWithValue("@productId", productId);
+            cmd.ExecuteNonQuery();
+            
+
             row.Delete();
             _da.Update(dataGridView1.DataSource as DataTable);
         }
@@ -183,6 +199,19 @@ namespace divingWebProject.View
             sql += " OR productDescription LIKE @K_KEYWORD ";
 
             displayProductBySql(sql, true);
+        }
+
+        private void createphoto_Click(object sender, EventArgs e)
+        {
+            FrmUsedProductImages f=new FrmUsedProductImages();
+            f.ShowDialog();
+        }
+
+        private void Save_Click(object sender, EventArgs e) //重新整理
+        {
+            string sql = "SELECT * FROM tUproducts ";
+            _da.Update(dataGridView1.DataSource as DataTable);
+            displayProductBySql(sql, false);
         }
     }
 }

@@ -30,19 +30,19 @@ namespace divingWebProject.View
                 _usedProduct.productConditionId = Convert.ToInt32(fproductConditionId.SelectedValue); // 商品狀況**
 
                 _usedProduct.productDescription = fproductDescription.Text; //商品描述
-                _usedProduct.productId = Convert.ToInt32(fproductId.Text); //商品ID
+                //_usedProduct.productId = Convert.ToInt32(fproductId.Text); //商品ID
                 _usedProduct.sellerId = Convert.ToInt32(fsellerId.Text); //賣家ID
                 _usedProduct.createdAt = DateTime.Now.ToString(); //上架時間
                 _usedProduct.productStatus = fproductStatus.Checked; //上架
-                //if (_usedProduct.image != null)
-                //{
-                //    try
-                //    {
-                //        Stream streamImage = new MemoryStream(_usedProduct.image);
-                //        pictureBox1.Image = Bitmap.FromStream(streamImage);
-                //    }
-                //    catch { }
-                //}
+                if (_usedProduct.image != null)
+                {
+                    try
+                    {
+                        Stream streamImage = new MemoryStream(_usedProduct.image);
+                        pictureBox1.Image = Bitmap.FromStream(streamImage);
+                    }
+                    catch { }
+                }
 
                 return _usedProduct;
 
@@ -55,7 +55,7 @@ namespace divingWebProject.View
                 fproductPrice.Text = _usedProduct.productPrice.ToString(); // 商品價錢
                 fproductConditionId.Text = _usedProduct.productConditionId.ToString(); // 商品狀況**
                 fproductDescription.Text = _usedProduct.productDescription; // 商品描述
-                fproductId.Text = _usedProduct.productId.ToString(); // 商品ID
+                //fproductId.Text = _usedProduct.productId.ToString(); // 商品ID
                 fsellerId.Text = _usedProduct.sellerId.ToString(); // 賣家ID
                 fproductStatus.Checked = _usedProduct.productStatus; //上架
 
@@ -124,11 +124,39 @@ namespace divingWebProject.View
                 return;
             pictureBox1.Image = Bitmap.FromFile(openFileDialog1.FileName);
 
-            FileStream imgStram = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
-            BinaryReader reader = new BinaryReader(imgStram);
-            this.usedProduct.image = reader.ReadBytes((int)imgStram.Length);
-            reader.Close();
-            imgStram.Close();
+            byte[] imageBytes;
+            using (FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read))
+            {
+                using (BinaryReader reader = new BinaryReader(fs))
+                {
+                    imageBytes = reader.ReadBytes((int)fs.Length);  // 讀取整個檔案為位元組陣列
+                }
+            }
+
+            // 建立 SQL 連線並插入圖片
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.;Initial Catalog=diveShopper;Integrated Security=SSPI;"))
+            {
+                // SQL 插入語句
+                string query = "INSERT INTO tUproductImages (productId, image) " +
+                               "VALUES (@productId, @image)";
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // 假設 ProductID 是您想關聯的產品 ID，這裡假設為 1
+                command.Parameters.AddWithValue("@productId", this.usedProduct.productId);  // 使用 yourProductID，這裡假設為 1
+                command.Parameters.AddWithValue("@image", imageBytes);  // 插入圖片的二進位資料
+                
+                try
+                {
+                    connection.Open();  // 開啟資料庫連線
+                    command.ExecuteNonQuery();  // 執行插入操作
+                    MessageBox.Show("圖片已成功儲存至資料庫！");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("儲存圖片到資料庫時發生錯誤: " + ex.Message);
+                }
+            }
         }
 
         private void FrmUsedProductEditor_Load(object sender, EventArgs e)
@@ -184,6 +212,77 @@ namespace divingWebProject.View
                 }
             }
             return dtCondition;
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            //儲存資料進資料庫不關閉視窗
+            //string message = "";
+            //if (string.IsNullOrEmpty(fproductName.Text))
+            //    message += "\r\n商品名稱不可空白";
+            //if (string.IsNullOrEmpty(fproductDescription.Text))
+            //    message += "\r\n商品描述不可空白";
+            //if (string.IsNullOrEmpty(fproductPrice.Text))
+            //    message += "\r\n價錢不可空白";
+            //else
+            //{
+            //    if (!isNumber(fproductPrice.Text))
+            //        message += "\r\n價錢必須是數字";
+            //}
+            //if (!string.IsNullOrEmpty(message))
+            //{
+            //    MessageBox.Show(message);
+            //    return;
+            //}
+            //using (SqlConnection connection = new SqlConnection(@"Data Source=.;Initial Catalog=diveShopper;Integrated Security=SSPI;"))
+            //{
+            //    // 建立 SQL 更新語句
+            //    string query = "UPDATE tUproducts SET productName = @productName, categoryId = @categoryId, " +
+            //                   "productPrice = @productPrice, productConditionId = @productConditionId, " +
+            //                   "productDescription = @productDescription, productStatus = @productStatus " +
+            //                   "WHERE productId = @productId";
+
+            //    SqlCommand command = new SqlCommand(query, connection);
+            //    command.Parameters.AddWithValue("@productName", this.usedProduct.productName);
+            //    command.Parameters.AddWithValue("@categoryId", this.usedProduct.categoryId);
+            //    command.Parameters.AddWithValue("@productPrice", this.usedProduct.productPrice);
+            //    command.Parameters.AddWithValue("@productConditionId", this.usedProduct.productConditionId);
+            //    command.Parameters.AddWithValue("@productDescription", this.usedProduct.productDescription);
+            //    command.Parameters.AddWithValue("@productStatus", this.usedProduct.productStatus);
+            //    command.Parameters.AddWithValue("@productId", this.usedProduct.productId);
+
+            //    try
+            //    {
+            //        connection.Open();  // 開啟資料庫連線
+            //        command.ExecuteNonQuery();  // 執行更新操作
+            //        MessageBox.Show("商品資料已成功儲存！");
+
+            //        // 如果需要保存圖片，請確保圖片資料是更新過的
+            //        if (pictureBox1.Image != null)
+            //        {
+            //            byte[] imageBytes;
+            //            using (MemoryStream ms = new MemoryStream())
+            //            {
+            //                pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //                imageBytes = ms.ToArray();
+            //            }
+
+            //            string imageQuery = "UPDATE tUproductImages SET image = @image WHERE productId = @productId";
+            //            SqlCommand imageCommand = new SqlCommand(imageQuery, connection);
+            //            imageCommand.Parameters.AddWithValue("@productId", this.usedProduct.productId);
+            //            imageCommand.Parameters.AddWithValue("@image", imageBytes);
+
+            //            imageCommand.ExecuteNonQuery();
+            //            MessageBox.Show("商品圖片已更新！");
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("儲存商品資料時發生錯誤: " + ex.Message);
+            //    }
+            //}
+            //this.isOk = DialogResult.OK;
+
         }
     }
 }
