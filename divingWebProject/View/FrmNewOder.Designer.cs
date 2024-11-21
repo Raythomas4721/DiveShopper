@@ -37,6 +37,7 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.nFieldBox4 = new divingWebProject.Modal.NFieldBox();
             this.fsubtotal = new divingWebProject.Modal.NFieldBox();
             this.fdiscount = new divingWebProject.Modal.NFieldBox();
@@ -52,8 +53,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 30);
+            this.label1.Size = new System.Drawing.Size(197, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "訂單管理系統";
             // 
@@ -66,9 +68,9 @@
             this.toolStripButton5,
             this.toolStripButton4,
             this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 38);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(956, 37);
+            this.toolStrip1.Size = new System.Drawing.Size(1275, 37);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -78,7 +80,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(107, 34);
+            this.toolStripButton1.Size = new System.Drawing.Size(126, 34);
             this.toolStripButton1.Text = "新增訂單";
             this.toolStripButton1.ToolTipText = "刪除訂單";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -89,7 +91,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(107, 34);
+            this.toolStripButton3.Size = new System.Drawing.Size(126, 34);
             this.toolStripButton3.Text = "刪除訂單";
             this.toolStripButton3.ToolTipText = "刪除訂單";
             // 
@@ -109,7 +111,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(75, 34);
+            this.toolStripButton4.Size = new System.Drawing.Size(86, 34);
             this.toolStripButton4.Text = "關閉";
             this.toolStripButton4.ToolTipText = "刪除訂單";
             // 
@@ -131,47 +133,64 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 161);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 201);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(956, 425);
+            this.dataGridView1.Size = new System.Drawing.Size(1275, 531);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(831, 128);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 29);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "確認";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // nFieldBox4
             // 
             this.nFieldBox4.filedName = "label1";
             this.nFieldBox4.filedValue = "";
-            this.nFieldBox4.Location = new System.Drawing.Point(462, 78);
+            this.nFieldBox4.Location = new System.Drawing.Point(616, 98);
+            this.nFieldBox4.Margin = new System.Windows.Forms.Padding(5);
             this.nFieldBox4.Name = "nFieldBox4";
-            this.nFieldBox4.Size = new System.Drawing.Size(113, 47);
+            this.nFieldBox4.Size = new System.Drawing.Size(151, 59);
             this.nFieldBox4.TabIndex = 3;
             // 
             // fsubtotal
             // 
             this.fsubtotal.filedName = "訂單總價";
             this.fsubtotal.filedValue = "";
-            this.fsubtotal.Location = new System.Drawing.Point(311, 78);
+            this.fsubtotal.Location = new System.Drawing.Point(415, 98);
+            this.fsubtotal.Margin = new System.Windows.Forms.Padding(5);
             this.fsubtotal.Name = "fsubtotal";
-            this.fsubtotal.Size = new System.Drawing.Size(113, 47);
+            this.fsubtotal.Size = new System.Drawing.Size(151, 59);
             this.fsubtotal.TabIndex = 3;
             // 
             // fdiscount
             // 
             this.fdiscount.filedName = "訂單折扣";
             this.fdiscount.filedValue = "";
-            this.fdiscount.Location = new System.Drawing.Point(170, 78);
+            this.fdiscount.Location = new System.Drawing.Point(227, 98);
+            this.fdiscount.Margin = new System.Windows.Forms.Padding(5);
             this.fdiscount.Name = "fdiscount";
-            this.fdiscount.Size = new System.Drawing.Size(113, 47);
+            this.fdiscount.Size = new System.Drawing.Size(151, 59);
             this.fdiscount.TabIndex = 3;
             // 
             // forderid
             // 
             this.forderid.filedName = "訂單id";
             this.forderid.filedValue = "";
-            this.forderid.Location = new System.Drawing.Point(24, 78);
+            this.forderid.Location = new System.Drawing.Point(32, 98);
+            this.forderid.Margin = new System.Windows.Forms.Padding(5);
             this.forderid.Name = "forderid";
-            this.forderid.Size = new System.Drawing.Size(113, 47);
+            this.forderid.Size = new System.Drawing.Size(151, 59);
             this.forderid.TabIndex = 3;
             // 
             // button1
@@ -186,9 +205,9 @@
             // 
             // FrmNewOder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 586);
+            this.ClientSize = new System.Drawing.Size(1275, 732);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.nFieldBox4);
             this.Controls.Add(this.fsubtotal);
@@ -197,6 +216,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmNewOder";
             this.Text = "FrmNewOder";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

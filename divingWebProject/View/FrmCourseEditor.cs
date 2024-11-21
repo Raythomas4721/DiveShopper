@@ -25,9 +25,9 @@ namespace divingWebProject.View
                 if(_course == null)
                     _course = new CCourse();
                 _course.courseId=Convert.ToInt32(fbCourseId.filedValue);
-                _course.courseCategoryId = Convert.ToInt32(cbbCategoryId.SelectedItem); 
-                _course.levelId = Convert.ToInt32(cbbLevelId.SelectedItem);
-                _course.coachId = Convert.ToInt32(cbbCoachId.SelectedItem);
+                _course.courseCategoryId = Convert.ToInt32(cbbCategoryId.Text); 
+                _course.levelId = Convert.ToInt32(cbbLevelId.Text);
+                _course.coachId = Convert.ToInt32(cbbCoachId.Text);
                 _course.coursePrice = Convert.ToDecimal(fbCoursePrice.filedValue);
                 _course.createdAt = Convert.ToDateTime(fbCreatedAt.filedValue);
                 _course.updatedAt = Convert.ToDateTime(fbUpdatedAt.filedValue);
@@ -37,8 +37,9 @@ namespace divingWebProject.View
             {
                 _course = value;
                 fbCourseId.filedValue = _course.courseId.ToString();
-                cbbCategoryId.SelectedItem = _course.courseCategoryId;
-                cbbLevelId.SelectedItem = _course.levelId.ToString();
+                cbbCategoryId.Text = _course.courseCategoryId.ToString();
+                cbbLevelId.Text = _course.levelId.ToString();
+                cbbCoachId.Text = _course.coachId.ToString();
                 fbCoursePrice.filedValue = _course.coursePrice.ToString();            
                 if (_course.photo != null)
                 {
@@ -91,13 +92,13 @@ namespace divingWebProject.View
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string message = "";
-            if (cbbCategoryId.SelectedItem == null)
+            if (cbbCategoryId.Text == "")
                 message += "課程種類不可空白";
 
-            if (cbbLevelId.SelectedItem == null)
+            if (cbbLevelId.Text =="")
                 message += "\r\n課程程度不可空白";
 
-            if (cbbCoachId.SelectedItem == null)
+            if (cbbCoachId.Text == "")
                 message += ("\r\n授課教練不可空白");
             if (string.IsNullOrEmpty(fbCoursePrice.filedValue))
                 message += "\r\n課程價格不可空白";
@@ -152,6 +153,11 @@ namespace divingWebProject.View
             this.course.photo= reader.ReadBytes((int)imgStream.Length);
             reader.Close();
             imgStream.Close();
+        }
+
+        private void cbbCategoryId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
