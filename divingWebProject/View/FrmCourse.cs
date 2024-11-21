@@ -30,18 +30,20 @@ namespace divingWebProject.View
         private void FrmCourseList_Load(object sender, EventArgs e)
         {
             displayCoursesBySql("SELECT * FROM tCcourses",false);
+            dataGridView1.Columns["coursePrice"].DefaultCellStyle.Format = "0"; // 去掉小數位
 
             label1.BackColor = System.Drawing.Color.FromArgb(108, 122, 137 ); 
             toolStrip1.BackColor = System.Drawing.Color.FromArgb(163, 198, 196);
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = SystemColors.Control; // 默認背景色
             dataGridView1.RowsDefaultCellStyle.BackColor = Color.FromArgb(224, 231, 233); //偶數行
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255); //奇數行
-
+            resetGridstyle1();
 
         }
 
         private void displayCoursesBySql(string sql,bool isKeyword)
         {
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True";
             con.Open();
@@ -59,6 +61,26 @@ namespace divingWebProject.View
             _da.Fill(_ds);
             con.Close();
             dataGridView1.DataSource = _ds.Tables[0]; //把水桶的資料Table加到dataGridView上
+            resetGridstyle1();
+        }
+        private void resetGridstyle1()
+        {
+            
+            //dataGridView1.Columns[0].Width = 100;
+            //dataGridView1.Columns[1].Width = 100;
+            //dataGridView1.Columns[2].Width = 100;
+            //dataGridView1.Columns[3].Width = 100;
+            //dataGridView1.Columns[4].Width = 100;
+            //dataGridView1.Columns[5].Width = 100;
+
+            dataGridView1.Columns["courseId"].HeaderText = "課程ID";
+            dataGridView1.Columns["courseCategoryId"].HeaderText = "課程種類ID";
+            dataGridView1.Columns["levelId"].HeaderText = "等級ID";
+            dataGridView1.Columns["coachId"].HeaderText = "教練ID";
+            dataGridView1.Columns["coursePrice"].HeaderText = "價格";
+            dataGridView1.Columns["photo"].HeaderText = "圖片";
+            dataGridView1.Columns["createdAt"].HeaderText = "建立日期";
+            dataGridView1.Columns["updatedAt"].HeaderText = "更新日期";
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -118,7 +140,7 @@ namespace divingWebProject.View
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
-        { //有空的話可以把顯示原資料顯示在ComboBox上(詳見google雲端文件)
+        { 
             if (_position < 0)
                 return;
             DataTable dt = dataGridView1.DataSource as DataTable;
@@ -292,9 +314,13 @@ namespace divingWebProject.View
             toolStripButton2.Enabled = true;
             toolStripButton3.Enabled = true;
             toolStripButton4.Enabled = true;
+           
 
         }
 
-        
+        private void FrmCourse_Paint(object sender, PaintEventArgs e)
+        {
+            resetGridstyle1();
+        }
     }
 }

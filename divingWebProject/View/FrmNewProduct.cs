@@ -75,7 +75,7 @@ namespace divingWebProject.View
             dataGridView1.Columns[2].Width = 200;
             dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].Width = 200;
-            dataGridView1.Columns[5].Width = 300;
+            //dataGridView1.Columns[5].Width = 300;
 
             bool isColorChanged1 = false;
             foreach (DataGridViewRow r in dataGridView1.Rows)
