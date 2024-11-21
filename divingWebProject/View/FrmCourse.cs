@@ -29,6 +29,10 @@ namespace divingWebProject.View
 
         private void FrmCourseList_Load(object sender, EventArgs e)
         {
+            dataGridView1.ReadOnly = true;
+            //dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Gray;
+            //dataGridView1.RowHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            //dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             displayCoursesBySql("SELECT * FROM tCcourses",false);
             dataGridView1.Columns["coursePrice"].DefaultCellStyle.Format = "0"; // 去掉小數位
 
@@ -65,7 +69,7 @@ namespace divingWebProject.View
         }
         private void resetGridstyle1()
         {
-            
+
             //dataGridView1.Columns[0].Width = 100;
             //dataGridView1.Columns[1].Width = 100;
             //dataGridView1.Columns[2].Width = 100;
@@ -73,14 +77,14 @@ namespace divingWebProject.View
             //dataGridView1.Columns[4].Width = 100;
             //dataGridView1.Columns[5].Width = 100;
 
-            dataGridView1.Columns["courseId"].HeaderText = "課程ID";
-            dataGridView1.Columns["courseCategoryId"].HeaderText = "課程種類ID";
-            dataGridView1.Columns["levelId"].HeaderText = "等級ID";
-            dataGridView1.Columns["coachId"].HeaderText = "教練ID";
-            dataGridView1.Columns["coursePrice"].HeaderText = "價格";
-            dataGridView1.Columns["photo"].HeaderText = "圖片";
-            dataGridView1.Columns["createdAt"].HeaderText = "建立日期";
-            dataGridView1.Columns["updatedAt"].HeaderText = "更新日期";
+            dataGridView1.Columns[0].HeaderText = "課程ID";
+            dataGridView1.Columns[1].HeaderText = "課程種類ID";
+            dataGridView1.Columns[2].HeaderText = "等級ID";
+            dataGridView1.Columns[3].HeaderText = "教練ID";
+            dataGridView1.Columns[4].HeaderText = "價格";
+            dataGridView1.Columns[5].HeaderText = "圖片";
+            dataGridView1.Columns[6].HeaderText = "建立日期";
+            dataGridView1.Columns[7].HeaderText = "更新日期";
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -112,7 +116,9 @@ namespace divingWebProject.View
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            Close();
+            _da.Update(dataGridView1.DataSource as DataTable);
+            displayCoursesBySql("SELECT *　FROM tCcourse",false);
+            //Close();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
