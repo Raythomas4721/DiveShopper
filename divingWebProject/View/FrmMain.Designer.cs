@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.FrmMember = new System.Windows.Forms.ToolStripButton();
+            this.FrmCoachList = new System.Windows.Forms.ToolStripButton();
             this.FrmNewProduct = new System.Windows.Forms.ToolStripButton();
             this.FrmUsedProduct = new System.Windows.Forms.ToolStripButton();
             this.FrmCourse = new System.Windows.Forms.ToolStripButton();
@@ -38,7 +39,6 @@
             this.FrmOrder = new System.Windows.Forms.ToolStripButton();
             this.FrmReview = new System.Windows.Forms.ToolStripButton();
             this.FrmAdminSetting = new System.Windows.Forms.ToolStripButton();
-            this.FrmCoachList = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.toolStrip1.Size = new System.Drawing.Size(255, 722);
+            this.toolStrip1.Size = new System.Drawing.Size(255, 864);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -79,6 +79,18 @@
             this.FrmMember.Size = new System.Drawing.Size(150, 51);
             this.FrmMember.Text = "會員管理";
             this.FrmMember.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // FrmCoachList
+            // 
+            this.FrmCoachList.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FrmCoachList.Image = ((System.Drawing.Image)(resources.GetObject("FrmCoachList.Image")));
+            this.FrmCoachList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FrmCoachList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FrmCoachList.Name = "FrmCoachList";
+            this.FrmCoachList.Padding = new System.Windows.Forms.Padding(8);
+            this.FrmCoachList.Size = new System.Drawing.Size(150, 51);
+            this.FrmCoachList.Text = "教練管理";
+            this.FrmCoachList.Click += new System.EventHandler(this.toolStripButton9_Click_1);
             // 
             // FrmNewProduct
             // 
@@ -164,18 +176,6 @@
             this.FrmAdminSetting.Text = "管理者設定";
             this.FrmAdminSetting.Click += new System.EventHandler(this.toolStripButton2_Click_1);
             // 
-            // FrmCoachList
-            // 
-            this.FrmCoachList.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.FrmCoachList.Image = ((System.Drawing.Image)(resources.GetObject("FrmCoachList.Image")));
-            this.FrmCoachList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FrmCoachList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FrmCoachList.Name = "FrmCoachList";
-            this.FrmCoachList.Padding = new System.Windows.Forms.Padding(8);
-            this.FrmCoachList.Size = new System.Drawing.Size(150, 51);
-            this.FrmCoachList.Text = "教練管理";
-            this.FrmCoachList.Click += new System.EventHandler(this.toolStripButton9_Click_1);
-            // 
             // toolStripButton10
             // 
             this.toolStripButton10.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -192,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1317, 722);
+            this.ClientSize = new System.Drawing.Size(1317, 864);
             this.Controls.Add(this.toolStrip1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);

@@ -111,6 +111,11 @@ namespace divingWebProject.View
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
             FrmMLogin f = new FrmMLogin();
+            
+            while (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+            }
             MessageBox.Show("您已登出");
             toolStripButton10.Text = "使用者您好";
             f.ShowDialog();
@@ -130,7 +135,7 @@ namespace divingWebProject.View
             FrmSite.Enabled = false; 
             FrmOrder.Enabled = false; 
             FrmReview.Enabled = false; 
-            FrmAdminSetting.Enabled = false; 
+            FrmAdminSetting.Enabled  = false; 
             FrmCoachList.Enabled = false; 
 
             // 根據角色開啟對應按鈕
@@ -176,6 +181,11 @@ namespace divingWebProject.View
                     MessageBox.Show("未知角色，無法設定權限");
                     break;
             }
+        }
+
+        private void FrmMain_Enter(object sender, EventArgs e)
+        {
+            this.FrmMain_Load(sender, e);
         }
     }
 }
