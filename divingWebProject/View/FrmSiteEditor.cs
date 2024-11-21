@@ -56,7 +56,19 @@ namespace divingWebProject.View
         {
             string message = "";
             if (string.IsNullOrEmpty(memberFieldBox1.filedValue))
-                message += "\r\n房型不可空白";
+                message += "\r\n場地名稱不可空白";
+            if (string.IsNullOrEmpty(memberFieldBox2.filedValue))
+                message += "\r\n場地人數不可空白";
+            if (!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show(message);
+                return;
+            }
+            else
+            {
+                if (!isNumber(memberFieldBox2.filedValue))
+                    message += "\r\n場地人數必須是數字";
+            }
             if (!string.IsNullOrEmpty(message))
             {
                 MessageBox.Show(message);
@@ -66,6 +78,20 @@ namespace divingWebProject.View
             this.isOk = DialogResult.OK;
             Close();
         }
+
+        private bool isNumber(string p)
+        {
+            try
+            {
+                double d = Convert.ToDouble(p);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public CSite Sitename 
         {
             get
@@ -111,6 +137,16 @@ namespace divingWebProject.View
             openFileDialog1.Filter = "房間照片|*.png";
             openFileDialog1.ShowDialog();
             pictureBox1.Image = Bitmap.FromFile(openFileDialog1.FileName);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void memberFieldBox6_Load(object sender, EventArgs e)
+        {
 
         }
     }

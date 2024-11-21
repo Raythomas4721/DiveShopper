@@ -90,11 +90,11 @@
     <Compile Include="View\FrmProductvariantEditor.Designer.cs">
       <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmSite2.cs">
+    <Compile Include="View\FrmSite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FrmSite2.Designer.cs">
-      <DependentUpon>FrmSite2.cs</DependentUpon>
+    <Compile Include="View\FrmSite.Designer.cs">
+      <DependentUpon>FrmSite.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmSiteEditor.cs">
       <SubType>Form</SubType>
@@ -208,12 +208,6 @@
     <Compile Include="View\FrmReview.Designer.cs">
       <DependentUpon>FrmReview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmSite.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FrmSite.Designer.cs">
-      <DependentUpon>FrmSite.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\FrmUsedProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,8 +235,8 @@
     <EmbeddedResource Include="View\FrmProductvariantEditor.resx">
       <DependentUpon>FrmProductvariantEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmSite2.resx">
-      <DependentUpon>FrmSite2.cs</DependentUpon>
+    <EmbeddedResource Include="View\FrmSite.resx">
+      <DependentUpon>FrmSite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmSiteEditor.resx">
       <DependentUpon>FrmSiteEditor.cs</DependentUpon>
@@ -306,9 +300,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmReview.resx">
       <DependentUpon>FrmReview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmSite.resx">
-      <DependentUpon>FrmSite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmUsedProduct.resx">
       <DependentUpon>FrmUsedProduct.cs</DependentUpon>
