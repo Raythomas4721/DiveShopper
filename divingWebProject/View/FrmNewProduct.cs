@@ -28,6 +28,7 @@ namespace divingWebProject.View
 
         private void FrmNewProduct_Load(object sender, EventArgs e)
         {
+            dataGridView1.ReadOnly = true;
             displayNewProductBySql("SELECT * FROM tNproduct ", false);
 
         }
