@@ -15,6 +15,8 @@ namespace divingWebProject.View
     public partial class FrmMLogin : Form
     {
         private bool isClosed = true;
+        public string CurrentUserName { get;  set; }
+        public string CurrentUserRole { get;  set; }
         public FrmMLogin()
         {
             InitializeComponent();
@@ -28,21 +30,24 @@ namespace divingWebProject.View
 
         private void login()
         {
-            string sql = "select * from tMmemberList where ";
-            sql += " memberEmail = @K_email ";
-            sql += " and memberPassword = @K_password";
+            string sql = "select * from tMadmin where ";
+            sql += " userName = @K_userName ";
+            sql += " and passwordHash = @K_passwordHash";
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Data Source=.;Initial Catalog=diveShopper;Integrated Security=True;";
             con.Open();
 
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.Add(new SqlParameter("K_email", (object)memberFieldBox1.filedValue));
-            cmd.Parameters.Add(new SqlParameter("K_password", (object)memberFieldBox2.filedValue));
+            cmd.Parameters.Add(new SqlParameter("K_userName", (object)FieldBox1.filedValue));
+            cmd.Parameters.Add(new SqlParameter("K_passwordHash", (object)FieldBox2.filedValue));
             SqlDataReader reader = cmd.ExecuteReader();
-            List<CMmember> list = new List<CMmember>();
+
             if (reader.Read())
             {
+                isClosed = false;
+                CurrentUserName = reader["userName"].ToString();
+                CurrentUserRole = reader["roleName"].ToString();
                 isClosed = false;
                 Close();
             }
@@ -52,7 +57,7 @@ namespace divingWebProject.View
 
         private void FrmMLogin_Load(object sender, EventArgs e)
         {
-            memberFieldBox2.passwordMask = '*';
+            FieldBox2.passwordMask = '*';
         }
 
         private void FrmMLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -89,5 +94,12 @@ namespace divingWebProject.View
                 login();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmForgetPassword f = new FrmForgetPassword();
+            f.ShowDialog();
+        }
+        
     }
 }

@@ -40,6 +40,7 @@ namespace divingWebProject.View
             set
             {
                 _member = value;
+                string memberId = _member.memberId.ToString();
                 memberFieldBox1.filedValue = _member.memberName;
                 memberFieldBox2.filedValue = _member.memberGender;
                 memberFieldBox3.filedValue = _member.memberEmail;
@@ -105,22 +106,22 @@ namespace divingWebProject.View
                 MessageBox.Show("姓名不可為空");
                 return;
             }
-    //        if (string.IsNullOrWhiteSpace(memberFieldBox2.filedValue) ||
-    //(memberFieldBox2.filedValue != "男" && memberFieldBox2.filedValue != "女"))
-    //        {
-    //            MessageBox.Show("性別請輸入男或女");
-    //            return;
-    //        }
-    //        if (string.IsNullOrEmpty(memberFieldBox3.filedValue))
-    //        {
-    //            MessageBox.Show("電子郵件不可為空");
-    //            return;
-    //        }
-    //        if (string.IsNullOrWhiteSpace(memberFieldBox6.filedValue) || (memberFieldBox6.filedValue != memberFieldBox7.filedValue))
-    //        {
-    //            MessageBox.Show("密碼欄位有誤，請輸入相同的值");
-    //            return;
-    //        }
+            if (string.IsNullOrWhiteSpace(memberFieldBox2.filedValue) ||
+    (memberFieldBox2.filedValue != "男" && memberFieldBox2.filedValue != "女"))
+            {
+                MessageBox.Show("性別請輸入男或女");
+                return;
+            }
+            if (string.IsNullOrEmpty(memberFieldBox3.filedValue))
+            {
+                MessageBox.Show("電子郵件不可為空");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(memberFieldBox6.filedValue))
+            {
+                MessageBox.Show("密碼欄位不可為空");
+                return;
+            }
             this.isOK = DialogResult.OK;
             Close();
         }

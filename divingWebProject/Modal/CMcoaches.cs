@@ -11,20 +11,9 @@ namespace divingWebProject.Modal
         public int coachId { get; set; }
         public string coachName { get; set; }
         public string gender { get; set; }
+        public string coachPhone { get; set; }
         public string experience { get; set; }
-        public byte[] Photo { get; set; }
-        public int divingStyleId { get; set; }
-    }
-    public class CMcoachDiving
-    {
-        public int coachDivingId { get; set; } 
-        public int coachId { get; set; } 
-        public int divingStyleId { get; set; }
-    }
-
-    public class CMdivingStyle
-    {
-        public int divingStyleId { get; set; } 
-        public string divingStyle { get; set; } 
+        public byte[] photo { get; set; }
+        public int divingStyleId {get; set;}
     }
 }

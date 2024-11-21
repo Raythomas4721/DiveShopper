@@ -69,6 +69,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modal\CMadmin.cs" />
     <Compile Include="Modal\CMcoaches.cs" />
     <Compile Include="Modal\CMmember.cs" />
     <Compile Include="Modal\CMmemberManager.cs" />
@@ -76,6 +77,18 @@
     <Compile Include="Modal\CNorder.cs" />
     <Compile Include="Modal\CNProduct.cs" />
     <Compile Include="Modal\CNProductvariant.cs" />
+    <Compile Include="View\FrmForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmForgetPassword.Designer.cs">
+      <DependentUpon>FrmForgetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMadminEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMadminEditor.Designer.cs">
+      <DependentUpon>FrmMadminEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmCourseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +245,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmForgetPassword.resx">
+      <DependentUpon>FrmForgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMadminEditor.resx">
+      <DependentUpon>FrmMadminEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmCourseOrder.resx">
       <DependentUpon>FrmCourseOrder.cs</DependentUpon>

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,6 @@ namespace divingWebProject.View
         {
             InitializeComponent();
         }
-
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
@@ -38,7 +39,15 @@ namespace divingWebProject.View
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            (new FrmMLogin()).ShowDialog();
+            FrmMLogin f = new FrmMLogin();
+            f.ShowDialog();
+
+            string currentRole = f.CurrentUserRole;
+            string userName = "登出" + f.CurrentUserName ;
+            if (userName == null)
+                userName = "登出使用者";
+            toolStripButton10.Text = userName;
+            SetPermissions(currentRole);
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -97,6 +106,86 @@ namespace divingWebProject.View
             FrmAdminSetting f = new FrmAdminSetting();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            FrmMLogin f = new FrmMLogin();
+            
+            while (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+            }
+            MessageBox.Show("您已登出");
+            toolStripButton10.Text = "使用者您好";
+            f.ShowDialog();
+
+            string userName = "登出" + f.CurrentUserName;
+            if (userName == null)
+                userName = "登出使用者";
+            toolStripButton10.Text = userName;
+        }
+        private void SetPermissions(string roleName)
+        {
+            // 預設所有按鈕不可用
+            FrmMember.Enabled = false; 
+            FrmUsedProduct.Enabled = false; 
+            FrmNewProduct.Enabled = false; 
+            FrmCourse.Enabled = false; 
+            FrmSite.Enabled = false; 
+            FrmOrder.Enabled = false; 
+            FrmReview.Enabled = false; 
+            FrmAdminSetting.Enabled  = false; 
+            FrmCoachList.Enabled = false; 
+
+            // 根據角色開啟對應按鈕
+            switch (roleName)
+            {
+                case "一般":
+                    break;
+
+                case "文案管理員":
+                    FrmReview.Enabled = true;
+                    break;
+
+                case "會員管理員":
+                    FrmMember.Enabled = true; 
+                    FrmCoachList.Enabled = true; 
+                    break;
+
+                case "產品管理員":
+                    FrmUsedProduct.Enabled = true;
+                    FrmNewProduct.Enabled = true; 
+                    FrmCourse.Enabled = true; 
+                    FrmSite.Enabled = true; 
+                    break;
+
+                case "訂單管理員":
+                    FrmOrder.Enabled = true; 
+                    break;
+
+                case "系統管理員":
+                case "超級管理員":
+                    FrmMember.Enabled = true;
+                    FrmUsedProduct.Enabled = true;
+                    FrmNewProduct.Enabled = true;
+                    FrmCourse.Enabled = true;
+                    FrmSite.Enabled = true;
+                    FrmOrder.Enabled = true;
+                    FrmReview.Enabled = true;
+                    FrmAdminSetting.Enabled = true;
+                    FrmCoachList.Enabled = true;
+                    break;
+
+                default:
+                    MessageBox.Show("未知角色，無法設定權限");
+                    break;
+            }
+        }
+
+        private void FrmMain_Enter(object sender, EventArgs e)
+        {
+            this.FrmMain_Load(sender, e);
         }
     }
 }

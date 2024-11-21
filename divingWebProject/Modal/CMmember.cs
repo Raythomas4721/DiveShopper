@@ -19,5 +19,6 @@ namespace divingWebProject.Modal
         public string urgentContact { get; set;}
         public string urgentPhone { get; set;}
         public DateTime recentLogin { get; set;}
+        public string status { get; set;}
     }
 }
